@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support the Salt Lake County Property Tax Referendum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #EE2737;
+            --red-dark: #c5303c;
+            --blue: #002868;
+            --blue-dark: #001a4d;
+            --blue-light: #457b9d;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --text: #2b2d42;
+            --text-light: #6c757d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; color: var(--text); line-height: 1.7; background: var(--light-gray); font-size: clamp(0.9rem, 1.5vw, 1rem); }
+
+        /* Navigation */
+        .nav { position: fixed; top: 0; left: 0; right: 0; background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; padding: 0 2rem; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .nav-logo img { height: 60px; width: auto; }
+        .nav-brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit; }
+        .nav-tagline { display: flex; flex-direction: column; line-height: 1.2; }
+        .tagline-top { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 0.5px; }
+        .tagline-bottom { font-family: 'Open Sans', sans-serif; font-size: 0.85rem; font-style: italic; color: var(--red); font-weight: 500; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--blue); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; font-family: 'Oswald', sans-serif; }
+        .nav-links a:hover, .nav-dropdown-trigger:hover { color: var(--red); }
+        .nav-dropdown-trigger { cursor: pointer; color: var(--blue); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Oswald', sans-serif; }
+        .nav-donate { background: var(--red); color: var(--white) !important; padding: 0.75rem 1.5rem; border-radius: 4px; transition: all 0.3s !important; }
+        .nav-donate:hover { background: var(--red-dark); transform: translateY(-2px); }
+        .nav-item-issues { position: relative; }
+        .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; min-width: 220px; background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 4px; list-style: none; padding: 0.5rem 0; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 1001; }
+        .nav-item-issues:hover .nav-dropdown { opacity: 1; visibility: visible; }
+        .nav-dropdown li { margin: 0; }
+        .nav-dropdown a { display: block; padding: 0.6rem 1.25rem; color: var(--blue); font-size: 0.85rem; text-transform: uppercase; white-space: nowrap; }
+        .nav-dropdown a:hover { background: var(--light-gray); color: var(--red); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--blue); }
+
+        @media (max-width: 992px) { .nav { padding: 0 1.5rem; } }
+
+        .page-hero {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,100 100,0 100,100" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: cover;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .page-hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+        .page-hero-tagline {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .red-line {
+            width: 80px;
+            height: 4px;
+            background: var(--red);
+            margin: 1.5rem auto 0;
+        }
+
+        .main-content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .statement-section {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--red);
+            margin-bottom: 2rem;
+        }
+
+        .statement-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .statement-section p:last-child { margin-bottom: 0; }
+
+        .highlight-box {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem 1.75rem;
+            margin: 2rem 0;
+            border-left: 3px solid var(--blue);
+        }
+
+        .highlight-box p {
+            font-weight: 600;
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: var(--blue);
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+        }
+
+        .cta-section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.25rem, 3vw, 1.8rem);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .cta-section p {
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--red);
+            min-height: 44px;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .cta-button:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(238, 39, 55, 0.35);
+        }
+
+        .signatures-note {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            .nav { padding: 0 1rem; }
+            .nav-container { height: 70px; }
+            .nav-logo img { height: 50px; }
+            .nav-tagline { display: none; }
+            .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; background: var(--white); flex-direction: column; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: left 0.3s; }
+            .nav-links.active { left: 0; }
+            .nav-item-issues { flex-direction: column; align-items: flex-start; width: 100%; }
+            .nav-dropdown { position: static; transform: none; margin-top: 0.5rem; margin-left: 1rem; min-width: auto; box-shadow: none; opacity: 1; visibility: visible; border-left: 2px solid var(--red); padding-left: 1rem; }
+            .mobile-menu-btn { display: block; }
+            .page-hero { padding: 5rem 1rem 3rem; }
+            .statement-section { padding: 2rem; }
+            .cta-section { padding: 2rem; }
+            .cta-button { padding: 0.875rem 2rem; font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .nav { padding: 0 0.75rem; }
+            .nav-container { height: 65px; }
+            .nav-logo img { height: 45px; }
+            .nav-links { top: 65px; }
+            .page-hero { padding: 4rem 0.75rem 2rem; }
+            .statement-section { padding: 1.5rem; }
+            .cta-section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-logo"><img src="SLCo5_Logo.png" alt="Chris Null for SLCo Council 5"></div>
+                <div class="nav-tagline">
+                    <span class="tagline-top">America First Leadership</span>
+                    <span class="tagline-bottom">Keeping the Dream Alive</span>
+                </div>
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#endorsements">Endorsements</a></li>
+                <li><a href="index.html#media">Media</a></li>
+                <li class="nav-item-issues">
+                    <span class="nav-dropdown-trigger">Issues</span>
+                    <ul class="nav-dropdown">
+                        <li><a href="referendum-statement.html">Property Tax Referendum</a></li>
+                        <li><a href="https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec">Riverton Supports ICE</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#volunteer">Get Involved</a></li>
+                <li><a href="https://secure.anedot.com/friends-of-chris-null/ccd5" class="nav-donate">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div class="page-hero-content">
+            <h1>Stop the Property Tax Increase</h1>
+            <p class="page-hero-tagline">Support the Salt Lake County Referendum — Let Voters Decide</p>
+            <div class="red-line"></div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <article class="statement-section">
+            <p>I stand in full support of the Salt Lake County property tax referendum and encourage all county residents to sign it, as I have done.</p>
+
+            <p>Mayor Jenny Wilson's original proposal called for a nearly 20% property tax increase—an excessive burden on families, seniors, and residents already struggling with rising costs. While the County Council reduced this to roughly 14%, this still represents the largest tax hike since 2019 and adds yet another expense on top of increases from school districts, special service districts, and other taxing entities.</p>
+
+            <p>Mayor Wilson has expanded her office staff from four to six deputy and associate deputy mayors since taking office. Rather than asking taxpayers to foot the bill for growing government, county leadership should first look inward.</p>
+
+            <div class="highlight-box">
+                <p>The county needs to find ways to reduce duplicate services and transition those services to government closer to the people—which in most cases means the cities.</p>
+            </div>
+
+            <p>This referendum does not cut services or defund public safety. It simply pauses the increase and gives voters the final say on whether this tax hike should move forward.</p>
+        </article>
+
+        <section class="cta-section">
+            <h2>Take Action Today</h2>
+            <p>Learn more and find out how to sign the petition.</p>
+            <a href="https://notaxslco.com/" class="cta-button" target="_blank" rel="noopener">Sign the Referendum</a>
+            <p class="signatures-note">Approximately 45,000 valid signatures are needed within 45 days.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Paid for by Friends of Chris Null</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

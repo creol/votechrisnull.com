@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Null – Utah GOP Grassroots Champion & State Party Treasurer</title>
+    <meta property="og:title" content="Chris Null – Proven Defender of Utah's Caucus System">
+    <meta property="og:description" content="Two-term SLCo GOP Chair • State Treasurer • Founding Keep My Voice Leader • Never backed down from protecting YOUR voice.">
+    <meta property="og:image" content="/images/speaking_uvu.webp">
+    <meta property="og:url" content="https://votechrisnull.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <style>
+        :root {
+            --red: #b30000;
+            --gold: #ffd700;
+            --dark: #222;
+            --light: #f8f9fa;
+            --accent: #003366; /* Added deep blue for more patriotic feel */
+        }
+        * {box-sizing: border-box;}
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0; background: var(--light); color: #333;
+            line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            --light: #1a1a1a;
+            --dark: #f8f9fa;
+            --red: #ff4d4d;
+            --gold: #ffcc00;
+            --accent: #6699cc;
+            background: var(--light);
+            color: var(--dark);
+        }
+        .dark-mode .card, .dark-mode .hero, .dark-mode .timeline, .dark-mode .quote {
+            background: #2a2a2a;
+            box-shadow: 0 8px 25px rgba(255,255,255,0.1);
+        }
+        .dark-mode .quote { background: #333; }
+        .dark-mode .lawsuits { background: #2a0000; border-color: var(--red); }
+        .dark-mode .cta { background: linear-gradient(135deg, #ff4d4d 0%, #cc0000 100%); }
+        header {
+            background: linear-gradient(135deg, var(--red) 0%, #8b0000 100%);
+            color: white; text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ribbon {
+            background: var(--gold); color: var(--dark);
+            padding: 8px 30px; display: inline-block;
+            font-weight: 900; font-size: 1.1em;
+            transform: rotate(-2deg); margin: 15px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        h1 {margin: 0; font-size: 3.5em; font-weight: 900;}
+        h2 {color: var(--red); border-bottom: 4px solid var(--red); padding-bottom: 10px; margin: 60px 0 30px;}
+        h3 {color: var(--red); font-size: 1.6em; margin: 40px 0 20px;}
+        .container {max-width: 1200px; margin: 0 auto; padding: 20px;}
+        .hero {
+            background: white; padding: 50px 30px;
+            border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            text-align: center; margin: 40px 0;
+        }
+        .quote {
+            font-size: 1.35em; font-weight: 700; color: var(--dark);
+            background: #fffdf0; padding: 30px; border-left: 8px solid var(--gold);
+            margin: 40px 0; border-radius: 8px;
+        }
+        .grid {
+            display: grid; gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            margin: 40px 0;
+        }
+        .card {
+            background: white; padding: 30px; border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(179,0,0,0.18);
+            border-color: var(--red);
+        }
+        .card img {
+            width: 100%; border-radius: 10px; margin: 15px 0;
+            cursor: zoom-in;
+        }
+        .award {background: #fffdf0; border: 3px solid var(--gold);}
+        .timeline {
+            background: white; padding: 35px; border-radius: 14px;
+            border-left: 6px solid var(--red);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .timeline li {
+            position: relative; padding-left: 30px; margin: 18px 0;
+            font-size: 1.1em;
+        }
+        .timeline li:before {
+            content: "►"; color: var(--red); position: absolute;
+            left: 0; font-weight: bold; font-size: 1.3em;
+        }
+        .cta {
+            background: linear-gradient(135deg, var(--red) 0%, #8b0000 100%);
+            color: white; text-align: center; padding: 70px 30px;
+            border-radius: 16px; margin: 80px 0;
+        }
+        .cta h2 {color: white; border-color: var(--gold);}
+        .btn {
+            display: inline-block; background: var(--gold); color: var(--dark);
+            padding: 14px 36px; border-radius: 50px; font-weight: 800;
+            text-decoration: none; margin: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+        .btn:hover {transform: scale(1.05); background: white;}
+        .lawsuits {
+            background: #fff5f5; padding: 40px; border-radius: 16px;
+            border: 2px dashed var(--red); margin: 60px 0;
+        }
+        footer {
+            background: var(--dark); color: #ccc; text-align: center;
+            padding: 40px; font-size: 0.95em;
+            position: relative;
+        }
+        .toggle-btn {
+            position: absolute; top: 20px; right: 20px;
+            background: var(--accent); color: white;
+            padding: 10px 20px; border-radius: 50px;
+            cursor: pointer; font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            h1 {font-size: 2.6em;}
+            header {padding: 60px 15px 40px;}
+            .hero {padding: 30px 20px;}
+            .grid {grid-template-columns: 1fr;}
+        }
+    </style>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="ribbon">100% CAUCUS SUPPORTER SINCE DAY 1</div>
+
+        <h1>Chris Null</h1>
+        <p style="font-size:1.6em; margin:15px 0;">
+            Utah State Party Treasurer • 4-Year SLCoGOP Chair • Founding Keep My Voice Leader
+        </p>
+        <p style="font-size:2.2em; font-weight:900; margin:25px 0;">
+            The Proven Fighter Who Has Never Stopped Defending YOUR Voice
+        </p>
+        <img src="/images/speaking_uvu.webp" alt="100% Caucus supporter since Day 1!" style="max-width:70%; border-radius:14px; margin-top:20px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <p>For over a decade, Chris Null has led the charge to protect Utah’s caucus-convention system, election integrity, and grassroots Republicans.</p>
+            <div class="quote">
+                “I promise to magnify the will of the party through the voice of the delegates, who vet and nominate the best candidates to represent and promote the principles found in the Utah Republican Party platform. I know these principles are the most effective to protect our families, our liberties, and will serve to sustain a moral government and society protected by God.” 
+                <br><strong>— Chris Null</strong>
+            </div>
+        </div>
+
+<!-- PoliticIt - Chris Null YouTube Episode Embed -->
+<div class="politicit-youtube-embed" style="max-width: 700px; margin: 40px auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.12); background: #fff;">
+  
+  <!-- YouTube Video (responsive) -->
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe 
+      src="https://www.youtube.com/embed/rZZ_rX4x9yQ?rel=0&showinfo=0&autoplay=0" 
+      title="Chris Null, two-term Chair of the Salt Lake County Republican Party on PoliticIt" 
+      allowfullscreen 
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+      loading="lazy">
+    </iframe>
+  </div>
+  
+  <!-- Content below video -->
+  <div style="padding: 24px;">
+    <h3 style="margin: 0 0 12px 0; font-size: 1.5em; font-weight: 700; line-height: 1.3;">
+      Chris Null, two-term Chair of the Salt Lake County Republican Party
+    </h3>
+    <p style="margin: 0 0 20px 0; color: #555; line-height: 1.6;">
+      In-studio interview: election integrity, the caucus system, voter privacy laws, and why grassroots involvement still matters in Utah politics.
+    </p>
+    
+    <!-- Button to full article -->
+    <div style="text-align: center;">
+      <a href="https://politicit.com/chris-null-the-two-term-chair-of-the-salt-lake-county-republican-party-in-studio-only-on-politicit/" 
+         target="_blank" 
+         rel="noopener" 
+         style="display: inline-block; padding: 14px 32px; background: #8b5cf6; color: #fff; text-decoration: none; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3); transition: all 0.2s;">
+        Read Full Article on PoliticIt.com →
+      </a>
+    </div>
+    
+    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 0.9em; text-align: center;">
+      Watch on YouTube: <a href="https://youtu.be/rZZ_rX4x9yQ" target="_blank" rel="noopener" style="color: #8b5cf6;">youtu.be/rZZ_rX4x9yQ</a>
+    </div>
+  </div>
+</div>
+
+        <h2>Proven Leadership Timeline</h2>
+        <div class="timeline">
+            <ul>
+                <li><strong>State Delegate</strong> – Salt Lake County GOP (2014–2020)</li>
+                <li><strong>Technology Chair</strong> – Salt Lake County GOP (2019–2021)</li>
+                <li><strong>Senate District Chair</strong> – SD-9 (2020–2021)</li>
+                <li><strong>State Central Committee</strong> – Utah Republican Party (2020–Present)</li>
+                <li><strong>County Party Chair</strong> – Salt Lake County GOP (2021–2025) <em>two full terms</em></li>
+                <li><strong>Convention Logistics Chair</strong> – 2021 Utah State Republican Convention</li>
+                <li><strong>Utah State Party Treasurer</strong> – Elected 2025</li>
+                <li><strong>State Caucus Chair</strong> – Current statewide role</li>
+            </ul>
+        </div>
+
+        <h2>Keep My Voice – Stopped CMV 2.0 & Repealed SB54 Attempt</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>2018 Keep My Voice Initiative – SLCo Regional Director</h3>
+                <a href="/images/KMV_Press.jpg" target="_blank"><img src="/images/KMV_Press.jpg" alt="KMV Press 2018"></a>
+                <p>Led 300+ volunteers gathering signatures statewide to repeal SB54 and stop CMV 2.0.</p>
+                <a href="/images/2018_KMV_Initiative.pdf" target="_blank" class="btn">View Initiative Application PDF →</a>
+            </div>
+            <div class="card award">
+                <h3>2019 Keep My Voice Distinguished Service Award</h3>
+                <img src="/images/award-certificate.jpg" alt="KMV Award">
+                <p><strong>1st Annual Keep My Voice Awards</strong><br>Reservist – Distinguished Service</p>
+                <img src="/images/award-plaque.jpg" alt="Chris with plaque">
+            </div>
+        </div>
+
+        <h2>Bang the Drum – Largest Convention Promotion in Utah History</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>2024 “Bang the Drum” Rally & Mailer</h3>
+                <img src="/images/BTD_announcement.jpg" alt="Bang the Drum rally">
+                <p>Promoted <strong>only convention-winning candidates</strong> — mailed full-color guide to <strong>140,000+ Republican homes</strong>.</p>
+               
+            </div>
+            <div class="card">
+                <img src="/images/BTD_Mailer.jpg" alt="Bang the Drum mailer">
+				 <a href="/images/BTD_Mailer_Full.pdf" target="_blank" class="btn">View Full Mailer PDF →</a>
+            </div>
+        </div>
+
+        <h2>Relentless Record Defending Grassroots Republicans</h2>
+        <div class="grid">
+            <div class="card">
+                <ul style="padding-left:22px;">
+                    <li>Created SLCoGOP <strong>Election Integrity Committee</strong> → <a href="https://slcogop.com/wp-content/uploads/2022/05/Salt-Lake-County-Republican-Party-Election-Integrity-Report-May-2022.pdf" target="_blank">Full Report</a></li>
+                    <li>Launched “Bang the Drum” – largest convention-only campaign ever</li>
+                    <li>Authored bylaws to <strong>disqualify signature-path candidates</strong></li>
+                    <li>Championed <strong>full party data access</strong> & <strong>static precincts</strong></li>
+                    <li>Defended Phil Lyman after his 67.5% convention win</li>
+                    <li>Publicly condemned Gov. Cox’s attacks on delegates</li>
+                    <li><a href="https://slcogop.com/utng/" target="_blank">Demanded protection for Utah National Guard rights</a></li>
+                    <li><a href="https://slcogop.com/remove-pornography-utah-schools/" target="_blank">Assisted in removal of pornographic books from schools</a></li>
+                </ul>
+                <img src="/images/cox-statement.jpg" alt="Chris defending delegates">
+            </div>
+            <div class="card">
+			 <li>Statement to USBE to remove pornographic materials from schools</li>
+                <img src="/images/remove_porno.png" alt="Statement to USBE to remove pornographic materials from schools">
+            </div>
+        </div>
+
+        <h2>Gallery of Leadership and Events</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="/images/slcogop_group.webp" alt="Group at Salt Lake County GOP Event">
+                <p>2023 Salt Lake County GOP Officers with David Barton of Wallbuilders at Lincoln Day Dinner.</p>
+            </div>
+            <div class="card">
+                <img src="/images/vivek_group.webp" alt="Group with Vivek Ramaswamy">
+                <p>2020 Lincoln Day Dinner with Dinesh D'Sousa.</p>
+            </div>
+            <div class="card">
+                <img src="/images/prolife_rally.jpg" alt="Pro-Life Rally at Utah State Capitol">
+                <p>2019 Pro-Life Rally at Utah State Capitol, standing up for unborn lives.</p>
+            </div>
+            <div class="card">
+                <img src="/images/uvu_group.webp" alt="Group at UVU GOP Event">
+                <p>The newly elected UTGOP Officers at 2025 State Convention.</p>
+            </div>
+            <div class="card">
+                <img src="/images/speaking_uvu.webp" alt="Speaking at UVU Republican Event">
+                <p>Speech at Utah State Republican Party Convention 2025</p>
+            </div>
+			<div class="card">
+                <img src="/images/speaking.jpg" alt="Defending the first amendment rights of Utah Republican Party at KMV">
+                <p>Defending the first amendment rights of Utah Republican Party at KMV Event</p>
+            </div>
+			<div class="card">
+                <img src="/images/rob_celeste_chris.jpg" alt="2025 Lincoln Day Casino Royale">
+                <p>Defending the first amendment rights of Utah Republican Party at KMV Event</p>
+            </div>
+        </div>
+
+
+
+        <div class="cta">
+            <h2>I will NEVER back down from this promise:</h2>
+            <p style="font-size:1.4em; max-width:900px; margin:30px auto;">
+                “I promise to magnify the will of the party through the voice of the delegates, who vet and nominate the best candidates to represent and promote the principles found in the Utah Republican Party platform. I know these principles are the most effective to protect our families, our liberties, and will serve to sustain a moral government and society protected by God.”
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</div>
+        <p>Authorized & paid for by Chris Null • Utah State Republican Party Treasurer • Not coordinated with any candidate</p>
+<!-- Default gnrcounter.com code for thenullhouse.com -->
+<script language="JavaScript" type="text/javascript" src="https://gnrcounter.com/counter.php?accId=9d0f9149105fbfd23a883a41a7388442"></script>
+<noscript>
+<a href="https://gnrcounter.com" title="Web Analytics">Web Analytics</a>
+</noscript>
+<!-- End of gnrcounter.com Code -->  
+  
+    </footer>
+</body>
+
+</html>

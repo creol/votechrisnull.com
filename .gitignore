@@ -1,0 +1,15 @@
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editor
+.vscode/
+.cursor/
+*.swp
+*~
+
+# Environment / secrets (if any)
+.env
+.env.local
+*.key

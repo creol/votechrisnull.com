@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Null for Salt Lake County Council District 5</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #EE2737;
+            --red-dark: #c5303c;
+            --blue: #002868;
+            --blue-dark: #001a4d;
+            --blue-light: #457b9d;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --text: #2b2d42;
+            --text-light: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 992px) {
+            .nav { padding: 0 1.5rem; }
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-tagline {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .tagline-top {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline-bottom {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--red);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .nav-links a:hover,
+        .nav-dropdown-trigger:hover {
+            color: var(--red);
+        }
+
+        .nav-dropdown-trigger {
+            cursor: pointer;
+            color: var(--blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .donate-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--red);
+            color: var(--white) !important;
+            padding: 0.75rem 1.5rem;
+            min-height: 44px;
+            border-radius: 4px;
+            transition: all 0.3s !important;
+        }
+
+        .donate-btn:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Issues dropdown */
+        .nav-item-issues {
+            position: relative;
+        }
+
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 0.5rem;
+            min-width: 220px;
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 4px;
+            list-style: none;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1001;
+        }
+
+        .nav-item-issues:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-dropdown li {
+            margin: 0;
+        }
+
+        .nav-dropdown a {
+            display: block;
+            padding: 0.6rem 1.25rem;
+            color: var(--blue);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .nav-dropdown a:hover {
+            background: var(--light-gray);
+            color: var(--red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            display: flex;
+            align-items: center;
+            padding: clamp(90px, 12vw, 120px) clamp(1rem, 3vw, 2rem) 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,100 100,0 100,100" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .hero-content h1 span {
+            color: var(--red);
+        }
+
+        .hero-office {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--blue-light);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-left: 3px solid var(--red);
+        }
+
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            min-height: 44px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(238, 39, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--blue);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 3vw, 2rem);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            color: var(--blue);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .red-line {
+            width: 80px;
+            height: 4px;
+            background: var(--red);
+            margin: 0 auto;
+        }
+
+        /* Issues Section */
+        .issues {
+            background: var(--white);
+        }
+
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .issue-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-top: 4px solid var(--red);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .issue-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .issue-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .issue-card h4 {
+            font-size: 1.1rem;
+            color: var(--red);
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .issue-card p {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-text h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            color: var(--blue);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Endorsements Section */
+        .endorsements {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .endorsement-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        .endorsement-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .endorsement-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--red);
+            flex-shrink: 0;
+        }
+
+        .endorsement-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .endorsement-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .endorsement-quote {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            font-style: italic;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .endorsement-quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 4rem;
+            color: var(--red);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        /* Media Section */
+        .media {
+            padding: 6rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .media-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+        }
+
+        .media-thumbnail {
+            width: 280px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .media-icon {
+            font-size: 3rem;
+            color: var(--red);
+            flex-shrink: 0;
+        }
+
+        .media-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .media-content h3 img {
+            height: 32px;
+            width: auto;
+        }
+
+        .media-content h3 a {
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .media-content h3 a:hover {
+            opacity: 0.7;
+        }
+
+        .modal-header h3 a {
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-header h3 a:hover {
+            opacity: 0.7;
+        }
+
+        .media-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .media-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--red);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: gap 0.3s;
+        }
+
+        .media-link:hover {
+            gap: 0.75rem;
+        }
+
+        .media-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 2% auto;
+            width: 90%;
+            max-width: 1200px;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 0;
+        }
+
+        .modal-header {
+            padding: 1.5rem 2rem;
+            background: var(--blue);
+            color: var(--white);
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .modal-header h3 img {
+            height: 32px;
+        }
+
+        .close-modal {
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            line-height: 1;
+            transition: opacity 0.3s;
+        }
+
+        .close-modal:hover {
+            opacity: 0.7;
+        }
+
+        .modal-body {
+            padding: 0;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+        }
+
+        .modal-body iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-header h3 {
+                font-size: 1.2rem;
+            }
+
+            .modal-header h3 img {
+                height: 24px;
+            }
+        }
+
+        /* Volunteer Section */
+        .volunteer {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            color: var(--white);
+        }
+
+        .volunteer .section-header h2 {
+            color: var(--white);
+        }
+
+        .volunteer .section-header p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .volunteer-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.9);
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-group input {
+            width: auto;
+        }
+
+        #formMessage {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--blue-dark);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--red);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--red);
+            color: var(--white);
+            padding: 0.9rem 1.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--white);
+            color: var(--blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .social-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav { padding: 0 1rem; }
+            .nav-container { height: 70px; }
+            .nav-logo img { height: 50px; }
+            .nav-tagline {
+                display: none;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-item-issues {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .nav-dropdown {
+                position: static;
+                transform: none;
+                margin-top: 0.5rem;
+                margin-left: 1rem;
+                padding-left: 0;
+                min-width: auto;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                border-left: 2px solid var(--red);
+                padding-left: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(1.75rem, 6vw, 2.5rem);
+            }
+
+            .hero-office {
+                font-size: clamp(1rem, 2.5vw, 1.3rem);
+            }
+
+            .hero-tagline {
+                font-size: clamp(0.95rem, 2vw, 1.1rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            }
+
+            .hero {
+                padding: 5rem 1rem 3rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: clamp(1.25rem, 3vw, 2rem);
+            }
+
+            .issues-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .endorsement-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .endorsement-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .endorsement-quote {
+                padding-left: 1.5rem;
+                font-size: 1rem;
+            }
+
+            .endorsement-quote::before {
+                font-size: 3rem;
+            }
+
+            .media-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .media-thumbnail {
+                width: 100%;
+                height: auto;
+            }
+
+            .media-content h3 {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .media-content h3 img {
+                height: 28px;
+            }
+
+            .media-icon {
+                font-size: 2.5rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav { padding: 0 0.75rem; }
+            .nav-container { height: 65px; }
+            .nav-logo img { height: 45px; }
+            .nav-links { top: 65px; }
+            .hero { padding: 4rem 0.75rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-logo">
+                    <!-- Logo Image - Replace SLCo5_Logo.png with your logo file -->
+                    <img src="SLCo5_Logo.png" alt="Chris Null for SLCo Council 5">
+                </div>
+                <div class="nav-tagline">
+                    <span class="tagline-top">America First Leadership</span>
+                    <span class="tagline-bottom">Keeping the Dream Alive</span>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#endorsements">Endorsements</a></li>
+                <li><a href="#media">Media</a></li>
+                <li class="nav-item-issues">
+                    <span class="nav-dropdown-trigger">Issues</span>
+                    <ul class="nav-dropdown">
+                        <li><a href="referendum-statement.html">Property Tax Referendum</a></li>
+                        <li><a href="https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec">Riverton Supports ICE</a></li>
+                    </ul>
+                </li>
+                <li><a href="#volunteer">Get Involved</a></li>
+                <li><a href="https://secure.anedot.com/friends-of-chris-null/ccd5" class="donate-btn">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>CHRIS <span>NULL</span></h1>
+                <div class="hero-office">Salt Lake County Council District 5</div>
+                <p class="hero-tagline">Conservative Republican fighting to Stop Excessive Taxing and reduce bureaucratic inefficiencies</p>
+                <p class="hero-subtitle">The Family is the main reason I am running. Our families need to be able to afford to live in Salt Lake County now and in the future. Salt Lake County government needs to do its part by cutting waste where we can. Please vote for me for Salt Lake County Council District 5.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#volunteer" class="btn btn-primary">Join Our Team</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Years of Service</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Committed</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Goal: Serve You</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Hero Image - Replace hero.png with your candidate photo -->
+                <img src="hero5.png" alt="Chris Null">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Chris Null</h2>
+                <p>Experience. Leadership. Results.</p>
+                <div class="red-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <!-- About Image - Replace about.jpg with a professional photo -->
+                    <img src="family.png" alt="Null family" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h3>A Proven Leader for Salt Lake County</h3>
+                    <p>Chris Null is a dedicated conservative who believes that government works best when it's closest to the people. As a longtime advocate for local control and responsible governance, Chris has been on the front lines fighting against top-down mandates that threaten our Utah way of life.</p>
+                    
+                    <p>Chris is a passionate defender of election integrity and has worked with organizations like Keep My Voice to ensure that Utah voters have a real say in choosing their representatives. He believes that the caucus-convention system gives grassroots the power to hold politicians accountable.</p>
+                    
+                    <p>Chris’ core beliefs begin with keeping housing affordable, protecting taxpayers through lower taxes and responsible county spending, and limiting the size and reach of government. He supports parental rights in education, public safety and the rule of law, free enterprise and small businesses, and the protection of individual liberties—including the sanctity of life and Second Amendment rights—while advocating for personal responsibility, economic opportunity, secure borders, and a strong national defense.</p
+                    <div class="hero-buttons" style="margin-top: 2rem;">
+                        <a href="#volunteer" class="btn btn-primary">Support Our Campaign</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Endorsements Section -->
+    <section id="endorsements" class="endorsements">
+        <div class="container">
+            <div class="section-header">
+                <h2>Endorsed By</h2>
+                <p>Conservative leaders supporting Chris Null for County Council</p>
+                <div class="red-line"></div>
+            </div>
+            
+            <div class="endorsement-card">
+                <div class="endorsement-header">
+                    <img src="Andrew_Pierucci.jpg" alt="Andy Pierucci" class="endorsement-photo" loading="lazy">
+                    <div class="endorsement-info">
+                        <h3>Andy Pierucci</h3>
+                        <p>Riverton City Councilman, District 1</p>
+                    </div>
+                </div>
+                <div class="endorsement-quote">
+                    Chris Null is the bold leader Salt Lake County needs right now. Chris isn't afraid to make the tough decisions necessary to streamline government and allow us to keep more of our hard earned money. He will eliminate duplicate county services, allowing cities like Riverton to thrive as they grow while the county shrinks and refocuses on its limited core responsibilities. Most importantly, Chris will help build a county that prioritizes families and lasting communities, not out of touch special interests. I wholeheartedly endorse my friend, Chris Null for Salt Lake County Council. He is the right choice at the right time for our county.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section id="media" class="media">
+        <div class="container">
+            <div class="section-header">
+                <h2>Media & Interviews</h2>
+                <p>Learn more about Chris's vision for Salt Lake County</p>
+                <div class="red-line"></div>
+            </div>
+            
+            <div class="media-card">
+                <img src="https://politicit.com/wp-content/uploads/2025/02/chris-null-the-two-term-chair-of.jpg" alt="Chris Null Politicit Interview" class="media-thumbnail" loading="lazy">
+                <div class="media-content">
+                    <h3>
+                        <a href="https://politicit.com/chris-null-the-two-term-chair-of-the-salt-lake-county-republican-party-in-studio-only-on-politicit/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
+                            <img src="https://politicit.com/wp-content/uploads/2024/03/politicit_logob@2x.png" alt="Politicit" loading="lazy">
+                        </a>
+                        In-Studio Interview
+                    </h3>
+                    <p>Chris discusses his tenure as Salt Lake County Republican Party Chair, his vision for conservative leadership, and the principles driving his campaign for County Council.</p>
+                    <button onclick="openModal()" class="media-link" style="background: none; border: none; cursor: pointer; padding: 0;">
+                        Watch Interview
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="volunteer">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Involved</h2>
+                <p>Join our grassroots movement to bring experienced leadership to the County Council</p>
+                <div class="red-line"></div>
+            </div>
+            <div class="volunteer-form">
+                <div id="formMessage"></div>
+                <form id="volunteerForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">ZIP Code *</label>
+                        <input type="text" id="zip" name="zip" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">How would you like to help?</label>
+                        <select id="interest" name="interest">
+                            <option value="">Select an option</option>
+                            <option value="volunteer">Volunteer</option>
+                            <option value="host">Host an Event</option>
+                            <option value="yard-sign">Yard Sign</option>
+                            <option value="donate">Make a Donation</option>
+                            <option value="updates">Just Stay Updated</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message (Optional)</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate" class="issues">
+        <div class="container">
+            <div class="section-header">
+                <h2>Support Our Campaign</h2>
+                <p>Help us bring experienced leadership to the Salt Lake County Council</p>
+                <div class="red-line"></div>
+            </div>
+            <div style="text-align: center; padding: 2rem;">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Your contribution helps us reach more voters and spread our message of responsible governance.</p>
+                <a href="https://secure.anedot.com/friends-of-chris-null/ccd5" class="btn btn-primary" style="font-size: 1.3rem; padding: 1.2rem 3rem;">Donate Now</a>
+                <p style="margin-top: 2rem; color: var(--text-light);">Paid for by Chris Null for Salt Lake County Council</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom" style="border-top: none; padding: 2.5rem 0;">
+            <p style="font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; margin-bottom: 1.5rem; color: var(--red);">Connect With Chris</p>
+            <div class="social-links" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+                <a href="https://www.facebook.com/groups/486234249044514/?ref=share&mibextid=NSMWBT" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Facebook
+                </a>
+                <a href="https://x.com/cnull" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    X
+                </a>
+                <a href="https://www.instagram.com/chrisnull?igsh=MTl6N2o0Y3dxMnRyNA==" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    Instagram
+                </a>
+            </div>
+            <p style="margin-bottom: 0.5rem;">&copy; 2026 Chris Null for Salt Lake County Council. All rights reserved.</p>
+            <p style="font-size: 0.85rem; opacity: 0.7;">Paid for by Chris Null for Salt Lake County Council</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Navbar effect on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Volunteer Form Handler
+        // Google Apps Script Web App URL for form submissions
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec';
+
+        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            
+            // Show loading state
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
+            formMessage.style.display = 'none';
+            
+            // Get form data as URL encoded string
+            const formData = new FormData(e.target);
+            const data = new URLSearchParams(formData).toString();
+            
+            // Submit to Google Sheets using no-cors mode
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: data
+            })
+            .then(() => {
+                // With no-cors, we can't read the response, but if we get here it likely worked
+                formMessage.style.display = 'block';
+                formMessage.style.backgroundColor = '#d4edda';
+                formMessage.style.color = '#155724';
+                formMessage.style.border = '1px solid #c3e6cb';
+                formMessage.textContent = '✓ Thank you for signing up! We\'ll be in touch soon.';
+                
+                // Reset form
+                e.target.reset();
+            })
+            .catch(error => {
+                // Error message
+                formMessage.style.display = 'block';
+                formMessage.style.backgroundColor = '#f8d7da';
+                formMessage.style.color = '#721c24';
+                formMessage.style.border = '1px solid #f5c6cb';
+                formMessage.textContent = '✗ Something went wrong. Please try again or email us directly.';
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Reset button
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            });
+        });
+    </script>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>
+                    <a href="https://politicit.com/chris-null-the-two-term-chair-of-the-salt-lake-county-republican-party-in-studio-only-on-politicit/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
+                        <img src="https://politicit.com/wp-content/uploads/2024/03/politicit_logob@2x.png" alt="Politicit" loading="lazy">
+                    </a>
+                    In-Studio Interview
+                </h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="videoFrame" src="" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoFrame');
+            // Use YouTube embed URL to show the video directly
+            iframe.src = 'https://www.youtube.com/embed/rZZ_rX4x9yQ?autoplay=1';
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoFrame');
+            iframe.src = '';
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

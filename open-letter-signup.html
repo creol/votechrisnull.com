@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign the Open Letter - Chris Null Campaign</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #EE2737;
+            --red-dark: #c5303c;
+            --blue: #002868;
+            --blue-dark: #001a4d;
+            --blue-light: #457b9d;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --text: #2b2d42;
+            --text-light: #6c757d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; color: var(--text); line-height: 1.7; min-height: 100vh; background: var(--light-gray); }
+
+        /* Navigation */
+        .nav { position: fixed; top: 0; left: 0; right: 0; background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; padding: 0 2rem; }
+        @media (max-width: 992px) { .nav { padding: 0 1.5rem; } }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .nav-logo img { height: 60px; width: auto; }
+        .nav-brand { display: flex; align-items: center; gap: 1rem; }
+        .nav-tagline { display: flex; flex-direction: column; line-height: 1.2; }
+        .tagline-top { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 0.5px; }
+        .tagline-bottom { font-family: 'Open Sans', sans-serif; font-size: 0.85rem; font-style: italic; color: var(--red); font-weight: 500; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--blue); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; font-family: 'Oswald', sans-serif; }
+        .nav-links a:hover, .nav-dropdown-trigger:hover { color: var(--red); }
+        .nav-dropdown-trigger { cursor: pointer; color: var(--blue); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Oswald', sans-serif; }
+        .nav-donate { background: var(--red); color: var(--white) !important; padding: 0.75rem 1.5rem; border-radius: 4px; transition: all 0.3s !important; }
+        .nav-donate:hover { background: var(--red-dark); transform: translateY(-2px); }
+        .nav-item-issues { position: relative; }
+        .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 0.5rem; min-width: 220px; background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 4px; list-style: none; padding: 0.5rem 0; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 1001; }
+        .nav-item-issues:hover .nav-dropdown { opacity: 1; visibility: visible; }
+        .nav-dropdown li { margin: 0; }
+        .nav-dropdown a { display: block; padding: 0.6rem 1.25rem; color: var(--blue); font-size: 0.85rem; text-transform: uppercase; white-space: nowrap; }
+        .nav-dropdown a:hover { background: var(--light-gray); color: var(--red); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--blue); }
+
+        .page-hero {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: clamp(5rem, 10vw, 6rem) clamp(1rem, 3vw, 2rem) 4rem;
+            position: relative;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,100 100,0 100,100" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: cover;
+        }
+        .page-hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .page-hero p { font-size: clamp(1rem, 2vw, 1.2rem); opacity: 0.95; position: relative; }
+
+        @media (max-width: 768px) {
+            .nav { padding: 0 1rem; }
+            .nav-container { height: 70px; }
+            .nav-logo img { height: 50px; }
+            .nav-tagline { display: none; }
+            .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; background: var(--white); flex-direction: column; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: left 0.3s; }
+            .nav-links.active { left: 0; }
+            .nav-item-issues { flex-direction: column; align-items: flex-start; width: 100%; }
+            .nav-dropdown { position: static; transform: none; margin-top: 0.5rem; margin-left: 1rem; min-width: auto; box-shadow: none; opacity: 1; visibility: visible; border-left: 2px solid var(--red); padding-left: 1rem; }
+            .mobile-menu-btn { display: block; }
+        }
+        @media (max-width: 480px) {
+            .nav { padding: 0 0.75rem; }
+            .nav-container { height: 65px; }
+            .nav-logo img { height: 45px; }
+            .nav-links { top: 65px; }
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--red);
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.25rem, 3vw, 1.4rem);
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--red);
+            text-transform: uppercase;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(69, 123, 157, 0.06);
+            border-radius: 6px;
+            border-left: 3px solid var(--blue-light);
+        }
+
+        .field-error {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--red);
+            margin-top: 0.25rem;
+        }
+
+        input.invalid {
+            border-color: var(--red);
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .required::after { content: ' *'; color: var(--red); }
+
+        input[type="text"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(0, 40, 104, 0.1);
+        }
+
+        select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: inherit;
+            background: var(--white);
+            cursor: pointer;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--blue);
+        }
+
+        .optional-section {
+            background: rgba(69, 123, 157, 0.08);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid var(--blue-light);
+        }
+
+        .optional-section h3 {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .radio-group { display: flex; flex-direction: column; gap: 0.75rem; }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            min-height: 44px;
+            background: var(--white);
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .radio-option:hover { border-color: var(--blue); }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--blue);
+        }
+
+        .caucus-info {
+            display: none;
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-top: 1rem;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .caucus-info.show {
+            display: block;
+        }
+
+        .caucus-info h4 {
+            color: #276749;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .caucus-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--blue);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: var(--white);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .info-link:hover {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            min-height: 44px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            background: var(--red);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 1rem;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(238, 39, 55, 0.3);
+        }
+
+        .donate-section {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed #e2e8f0;
+        }
+
+        .donate-section p { color: var(--text-light); margin-bottom: 1rem; }
+
+        .donate-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 2rem;
+            min-height: 44px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            background: var(--red);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .donate-btn:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            min-height: 44px;
+            background: var(--red);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Oswald', sans-serif;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+        .cta-btn:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+        }
+
+        .donate-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .donate-modal.show { display: flex; }
+        .donate-modal-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 768px) {
+            .donate-modal { padding: 1rem; }
+            .donate-modal-content { padding: 1.5rem; margin: 0 1rem; max-width: 100%; }
+        }
+        @media (max-width: 480px) {
+            .donate-modal { padding: 0.75rem; }
+            .donate-modal-content { padding: 1.25rem; margin: 0.5rem; }
+        }
+        .donate-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            line-height: 1;
+        }
+        .donate-modal-close:hover { color: var(--text); }
+        .donate-modal-content h3 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--blue);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        .donate-modal-content p {
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .donate-modal-dismiss {
+            display: block;
+            width: 100%;
+            margin-top: 0.75rem;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .donate-modal-dismiss:hover { color: var(--text); }
+
+        .success-message { display: none; text-align: center; padding: 2rem; }
+        .success-message.show { display: block; }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #48bb78;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .success-message h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--blue);
+            margin-bottom: 1rem;
+        }
+
+        .form-content {
+            display: block;
+        }
+
+        .form-content.hide {
+            display: none;
+        }
+
+        .signature-count {
+            text-align: center;
+            padding: 1rem;
+            background: var(--light-blue);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .signature-count span { font-size: 1.5rem; font-weight: 700; color: var(--blue); }
+
+        .signature-count { background: rgba(69, 123, 157, 0.1); }
+
+        @media (max-width: 480px) {
+            .page-hero { padding: 4rem 0.75rem 3rem; }
+            .page-hero h1 { font-size: clamp(1.25rem, 5vw, 1.8rem); }
+            .form-container { padding: 1rem; }
+            .form-card { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-logo"><img src="SLCo5_Logo.png" alt="Chris Null for SLCo Council 5"></div>
+                <div class="nav-tagline">
+                    <span class="tagline-top">America First Leadership</span>
+                    <span class="tagline-bottom">Keeping the Dream Alive</span>
+                </div>
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#endorsements">Endorsements</a></li>
+                <li><a href="index.html#media">Media</a></li>
+                <li class="nav-item-issues">
+                    <span class="nav-dropdown-trigger">Issues</span>
+                    <ul class="nav-dropdown">
+                        <li><a href="referendum-statement.html">Property Tax Referendum</a></li>
+                        <li><a href="https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec">Riverton Supports ICE</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#volunteer">Get Involved</a></li>
+                <li><a href="https://secure.anedot.com/friends-of-chris-null/ccd5" class="nav-donate">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-hero">
+        <h1>Sign the Open Letter</h1>
+        <p>Add your voice to our movement for change</p>
+    </div>
+
+    <div class="form-container">
+        <div class="form-card">
+            <div class="form-content" id="formContent">
+                <div class="signature-count">
+                    <span id="signatureCount">127</span> people have signed
+                </div>
+
+                <h2 class="section-title">Sign Your Name</h2>
+                
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="name" class="required">Your Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Are you a resident of Riverton?</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="rivertonResident" value="yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="rivertonResident" value="no">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="optional-section" id="cityStateSection" style="display: none;">
+                        <h3>Where do you live?</h3>
+                        <div class="form-group">
+                            <label for="city" class="required">City</label>
+                            <select id="city" name="city">
+                                <option value="">Select city...</option>
+                                <option value="Alta">Alta</option>
+                                <option value="Bluffdale">Bluffdale</option>
+                                <option value="Brighton">Brighton</option>
+                                <option value="Cottonwood Heights">Cottonwood Heights</option>
+                                <option value="Copperton">Copperton</option>
+                                <option value="Draper">Draper</option>
+                                <option value="Emigration Canyon">Emigration Canyon</option>
+                                <option value="Herriman">Herriman</option>
+                                <option value="Holladay">Holladay</option>
+                                <option value="Kearns">Kearns</option>
+                                <option value="Magna">Magna</option>
+                                <option value="Midvale">Midvale</option>
+                                <option value="Millcreek">Millcreek</option>
+                                <option value="Murray">Murray</option>
+                                <option value="Riverton">Riverton</option>
+                                <option value="Salt Lake City">Salt Lake City</option>
+                                <option value="Sandy">Sandy</option>
+                                <option value="South Jordan">South Jordan</option>
+                                <option value="South Salt Lake">South Salt Lake</option>
+                                <option value="Taylorsville">Taylorsville</option>
+                                <option value="West Jordan">West Jordan</option>
+                                <option value="West Valley City">West Valley City</option>
+                                <option value="White City">White City</option>
+                                <option value="Other (Out of State)">Other (Out of State)</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="stateGroup">
+                            <label for="state" class="required">State</label>
+                            <select id="state" name="state">
+                                <option value="">Select state...</option>
+                                <option value="Utah">Utah</option>
+                                <option value="Alabama">Alabama</option>
+                                <option value="Alaska">Alaska</option>
+                                <option value="Arizona">Arizona</option>
+                                <option value="Arkansas">Arkansas</option>
+                                <option value="California">California</option>
+                                <option value="Colorado">Colorado</option>
+                                <option value="Connecticut">Connecticut</option>
+                                <option value="Delaware">Delaware</option>
+                                <option value="Florida">Florida</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Idaho">Idaho</option>
+                                <option value="Illinois">Illinois</option>
+                                <option value="Indiana">Indiana</option>
+                                <option value="Iowa">Iowa</option>
+                                <option value="Kansas">Kansas</option>
+                                <option value="Kentucky">Kentucky</option>
+                                <option value="Louisiana">Louisiana</option>
+                                <option value="Maine">Maine</option>
+                                <option value="Maryland">Maryland</option>
+                                <option value="Massachusetts">Massachusetts</option>
+                                <option value="Michigan">Michigan</option>
+                                <option value="Minnesota">Minnesota</option>
+                                <option value="Mississippi">Mississippi</option>
+                                <option value="Missouri">Missouri</option>
+                                <option value="Montana">Montana</option>
+                                <option value="Nebraska">Nebraska</option>
+                                <option value="Nevada">Nevada</option>
+                                <option value="New Hampshire">New Hampshire</option>
+                                <option value="New Jersey">New Jersey</option>
+                                <option value="New Mexico">New Mexico</option>
+                                <option value="New York">New York</option>
+                                <option value="North Carolina">North Carolina</option>
+                                <option value="North Dakota">North Dakota</option>
+                                <option value="Ohio">Ohio</option>
+                                <option value="Oklahoma">Oklahoma</option>
+                                <option value="Oregon">Oregon</option>
+                                <option value="Pennsylvania">Pennsylvania</option>
+                                <option value="Rhode Island">Rhode Island</option>
+                                <option value="South Carolina">South Carolina</option>
+                                <option value="South Dakota">South Dakota</option>
+                                <option value="Tennessee">Tennessee</option>
+                                <option value="Texas">Texas</option>
+                                <option value="Vermont">Vermont</option>
+                                <option value="Virginia">Virginia</option>
+                                <option value="Washington">Washington</option>
+                                <option value="West Virginia">West Virginia</option>
+                                <option value="Wisconsin">Wisconsin</option>
+                                <option value="Wyoming">Wyoming</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <p class="disclaimer">We will use this information to contact you in the future regarding important issues regarding Salt Lake County Government and my campaign for Council District 5.</p>
+
+                    <div class="optional-section">
+                        <h3>Want updates from our campaign? (Optional)</h3>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" inputmode="email" autocomplete="email">
+                            <span class="field-error" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" inputmode="tel" autocomplete="tel">
+                            <span class="field-error" id="phoneError"></span>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">Caucus Information</h2>
+
+                    <div class="form-group">
+                        <label class="required">Will you attend the caucus on March 17th?</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="attending" value="yes" required>
+                                <span>Yes, I'll be there!</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="attending" value="maybe">
+                                <span>Maybe / Not sure yet</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="attending" value="no">
+                                <span>No, I cannot attend</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Do you need more information about caucus and where to attend?</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="needInfo" value="yes" id="needInfoYes">
+                                <span>Yes, please tell me more</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="needInfo" value="no">
+                                <span>No, I know where to go</span>
+                            </label>
+                        </div>
+
+                        <div class="caucus-info" id="caucusInfo">
+                            <h4>📍 Find Your Caucus Location</h4>
+                            <p>Visit the Precinct Portal to find your caucus location and get all the details you need to participate on March 17th.</p>
+                            <a href="https://precinctportal.org/" target="_blank" class="info-link">
+                                Go to PrecinctPortal.org →
+                            </a>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Sign the Open Letter</button>
+                </form>
+
+                <div class="donate-section">
+                    <p>Support our campaign and help make a difference</p>
+                    <a href="https://secure.anedot.com/friends-of-chris-null/ccd5" target="_blank" class="donate-btn">
+                        Donate Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✓</div>
+                <h2>Thank You for Signing!</h2>
+                <p>Your signature has been added to the open letter. Together, we're making our voices heard.</p>
+                
+                <p style="margin-top: 1.5rem;">
+                    <a href="https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec" class="cta-btn" style="display: inline-block;">See your name on the open letter</a>
+                </p>
+                
+                <div class="caucus-info show" id="successCaucusInfo" style="display: none; margin-top: 1.5rem;">
+                    <h4>📍 Don't Forget: Find Your Caucus Location</h4>
+                    <p>The caucus is on March 17th. Find your location at:</p>
+                    <a href="https://precinctportal.org/" target="_blank" class="info-link">
+                        PrecinctPortal.org →
+                    </a>
+                </div>
+
+                <div class="donate-section">
+                    <p>Want to do even more? Support our campaign!</p>
+                    <a href="https://secure.anedot.com/friends-of-chris-null/ccd5" target="_blank" class="donate-btn">
+                        Donate to the Campaign
+                    </a>
+                </div>
+            </div>
+
+            <div id="donateModal" class="donate-modal">
+                <div class="donate-modal-content">
+                    <button class="donate-modal-close" id="donateModalClose">&times;</button>
+                    <h3>Please Help Support Our Campaign</h3>
+                    <p>Please help with a donation to my campaign for Salt Lake County Council District 5 of any amount. I am committed to promoting our conservative values that deserve God's Blessings on America starting in Salt Lake County.</p>
+                    <a href="https://secure.anedot.com/friends-of-chris-null/ccd5" target="_blank" class="donate-btn" style="margin-top: 1rem;">Donate Now</a>
+                    <button class="donate-modal-dismiss" id="donateModalDismiss">Maybe Later</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec';
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        document.getElementById('donateModalClose').addEventListener('click', function() {
+            document.getElementById('donateModal').classList.remove('show');
+        });
+        document.getElementById('donateModalDismiss').addEventListener('click', function() {
+            document.getElementById('donateModal').classList.remove('show');
+        });
+        document.getElementById('donateModal').addEventListener('click', function(e) {
+            if (e.target === this) this.classList.remove('show');
+        });
+
+        // Phone: format as (XXX) XXX-XXXX and validate
+        function formatPhone(value) {
+            const digits = value.replace(/\D/g, '');
+            if (digits.length <= 3) return digits.replace(/(\d{0,3})/, '($1');
+            if (digits.length <= 6) return digits.replace(/(\d{3})(\d{0,3})/, '($1) $2');
+            return digits.slice(0, 10).replace(/(\d{3})(\d{3})(\d{0,4})/, '($1) $2-$3');
+        }
+        function getPhoneDigits(phone) {
+            return phone.replace(/\D/g, '');
+        }
+        function isValidPhone(phone) {
+            return getPhoneDigits(phone).length === 10;
+        }
+
+        document.getElementById('phone').addEventListener('input', function() {
+            this.value = formatPhone(this.value);
+            this.classList.remove('invalid');
+            document.getElementById('phoneError').textContent = '';
+        });
+
+        // Email: validate format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        function isValidEmail(email) {
+            if (!email || email.trim() === '') return false;
+            return emailRegex.test(email.trim());
+        }
+
+        document.getElementById('email').addEventListener('input', function() {
+            this.classList.remove('invalid');
+            document.getElementById('emailError').textContent = '';
+        });
+
+        // Show city/state section when not a Riverton resident
+        document.querySelectorAll('input[name="rivertonResident"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                var section = document.getElementById('cityStateSection');
+                var citySelect = document.getElementById('city');
+                var stateSelect = document.getElementById('state');
+                if (this.value === 'no') {
+                    section.style.display = 'block';
+                    citySelect.required = true;
+                    stateSelect.required = true;
+                } else {
+                    section.style.display = 'none';
+                    citySelect.required = false;
+                    stateSelect.required = false;
+                    citySelect.value = '';
+                    stateSelect.value = '';
+                }
+            });
+        });
+
+        // When selecting a Utah city (not Other), default state to Utah
+        document.getElementById('city').addEventListener('change', function() {
+            var stateSelect = document.getElementById('state');
+            if (this.value && this.value !== 'Other (Out of State)') {
+                stateSelect.value = 'Utah';
+            }
+        });
+
+        // Show caucus info when user says they need more info
+        document.querySelectorAll('input[name="needInfo"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const caucusInfo = document.getElementById('caucusInfo');
+                if (this.value === 'yes') {
+                    caucusInfo.classList.add('show');
+                } else {
+                    caucusInfo.classList.remove('show');
+                }
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value;
+            const phoneDigits = getPhoneDigits(phone);
+            const rivertonResident = document.querySelector('input[name="rivertonResident"]:checked')?.value;
+            let city = '';
+            let state = '';
+            if (rivertonResident === 'yes') {
+                city = 'Riverton';
+                state = 'Utah';
+            } else {
+                city = document.getElementById('city').value || '';
+                state = document.getElementById('state').value || '';
+            }
+            const attending = document.querySelector('input[name="attending"]:checked')?.value;
+            const needInfo = document.querySelector('input[name="needInfo"]:checked')?.value;
+
+            // If "Yes, please tell me more" - require email or phone
+            if (needInfo === 'yes') {
+                const hasEmail = isValidEmail(email);
+                const hasPhone = isValidPhone(phone);
+                if (!hasEmail && !hasPhone) {
+                    alert('To receive more information about the caucus, please provide either an email address or phone number so we can reach out to you.');
+                    if (!hasEmail) {
+                        document.getElementById('email').classList.add('invalid');
+                        document.getElementById('emailError').textContent = 'Required when requesting more info';
+                    }
+                    if (!hasPhone) {
+                        document.getElementById('phone').classList.add('invalid');
+                        document.getElementById('phoneError').textContent = 'Required when requesting more info';
+                    }
+                    return;
+                }
+            }
+
+            // Validate email if provided (must be valid format)
+            if (email && !isValidEmail(email)) {
+                document.getElementById('email').classList.add('invalid');
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                return;
+            }
+
+            // Validate phone if provided (must be 10 digits)
+            if (phone && !isValidPhone(phone)) {
+                document.getElementById('phone').classList.add('invalid');
+                document.getElementById('phoneError').textContent = 'Please enter a valid 10-digit phone number';
+                return;
+            }
+
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
+
+            const formData = new URLSearchParams();
+            formData.append('formType', 'openletter');
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone', phoneDigits || phone);
+            formData.append('city', city);
+            formData.append('state', state);
+            formData.append('attending', attending || '');
+            formData.append('needInfo', needInfo || '');
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formData.toString()
+            })
+            .then(() => {
+                document.getElementById('formContent').classList.add('hide');
+                document.getElementById('successMessage').classList.add('show');
+                if (attending === 'yes' || attending === 'maybe') {
+                    document.getElementById('successCaucusInfo').style.display = 'block';
+                }
+                const countEl = document.getElementById('signatureCount');
+                countEl.textContent = parseInt(countEl.textContent) + 1;
+                setTimeout(function() {
+                    document.getElementById('donateModal').classList.add('show');
+                }, 500);
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Something went wrong. Please try again.');
+            })
+            .finally(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>

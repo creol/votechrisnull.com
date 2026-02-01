@@ -1,0 +1,35 @@
+IMAGE UPDATE GUIDE
+==================
+
+Your website is now set up with easy-to-update images!
+
+IMAGES YOU NEED:
+----------------
+1. SLCo5_Logo.png - Your campaign logo (✓ Already added!)
+2. hero.jpg - Main photo for the hero section (shows on homepage)
+3. about.jpg - Photo for the About section
+
+HOW TO UPDATE IMAGES:
+---------------------
+1. Name your image files exactly as shown above
+2. Place them in the same folder as index.html
+3. That's it! The website will automatically use them
+
+IMAGE TIPS:
+-----------
+• Hero image: Use a high-quality portrait photo (recommended: 800x1000 pixels)
+• About image: Professional headshot or candid photo (recommended: 600x800 pixels)
+• Logo: Already set up with your SLCo5_Logo.png
+
+TO CHANGE AN IMAGE LATER:
+-------------------------
+Just replace the file with a new one using the same name!
+
+Example: To update your hero photo, just replace "hero.jpg" with your new photo
+(make sure the new photo is also named "hero.jpg")
+
+NEED HELP?
+----------
+• Make sure image files are in the same folder as index.html
+• Check that file names match exactly (case-sensitive!)
+• Supported formats: .jpg, .jpeg, .png

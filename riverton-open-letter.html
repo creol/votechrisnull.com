@@ -407,6 +407,19 @@
             }
         }
         
+        .leaders-list {
+            margin: 0.5rem 0 1.25rem 0;
+            padding-left: 2em;
+        }
+        .leaders-list p {
+            margin-bottom: 0.35rem;
+        }
+        .leaders-list .leader-name {
+            color: var(--blue);
+            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+        }
+        
         /* Signatures */
         .signature-section {
             margin-top: 2rem;
@@ -508,10 +521,24 @@
             <p>We hope other cities throughout Salt Lake County will follow Riverton's example. Together, we can make our region a safer and better place to live for all law-abiding residents.</p>
             
             <p><strong>Respectfully submitted,</strong></p>
-            <p><strong>Concerned Citizens of Riverton and Salt Lake County</strong></p>
+            
+            <div class="leaders-list">
+                <p><span class="leader-name">Chris Null</span>, SLCo Council 5 Candidate</p>
+                <p><span class="leader-name">Trent Staggs</span>, Former Mayor Riverton</p>
+                <p><span class="leader-name">Sheldon Stewart</span>, SLCo Council 5</p>
+                <p><span class="leader-name">Andy Pierucci</span>, Riverton Councilman 1</p>
+                <p><span class="leader-name">Candice Pierucci</span>, UT House 49</p>
+                <p><span class="leader-name">Doug Fiefia</span>, UT House 48/Senate 18 Candidate</p>
+                <p><span class="leader-name">Mark Strong</span>, UT House 47</p>
+                <p><span class="leader-name">Dan McCay</span>, UT Senate 18</p>
+                <p><span class="leader-name">Shane Manwaring</span>, SLCo Sheriff Candidate</p>
+                <p><span class="leader-name">Kent Davis</span>, SLCo DA Candidate</p>
+            </div>
+            
+            <p><strong>And the following Concerned Citizens of Riverton and Salt Lake County:</strong></p>
             
             <div class="signature-section">
-                <h3>Signatures</h3>
+                <h3>Online signatures</h3>
                 <div class="signature-list" id="signatureListContainer">
                     <p id="signatureLoading">Loading signatures...</p>
                     <table id="signatureTable" style="display: none;">

@@ -1,0 +1,42 @@
+[
+    {
+        "timestamp": "2026-01-30 12:00:00",
+        "name": "Christopher Null",
+        "email": "",
+        "phone": "",
+        "city": "Riverton",
+        "state": "Utah",
+        "attending": "",
+        "needInfo": ""
+    },
+    {
+        "timestamp": "2026-01-30 12:00:00",
+        "name": "Amy Null",
+        "email": "",
+        "phone": "",
+        "city": "Riverton",
+        "state": "Utah",
+        "attending": "",
+        "needInfo": ""
+    },
+    {
+        "timestamp": "2026-01-31 10:00:00",
+        "name": "Dana Oldham",
+        "email": "",
+        "phone": "",
+        "city": "Riverton",
+        "state": "Utah",
+        "attending": "",
+        "needInfo": ""
+    },
+    {
+        "timestamp": "2026-01-31 14:00:00",
+        "name": "Andy Pierucci",
+        "email": "",
+        "phone": "",
+        "city": "Riverton",
+        "state": "Utah",
+        "attending": "",
+        "needInfo": ""
+    }
+]

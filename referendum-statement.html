@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support the Salt Lake County Property Tax Referendum</title>
+    <title>Stop the Salt Lake County Property Tax Increase | Referendum</title>
+    <meta name="description" content="Support the Salt Lake County property tax referendum. Stop Mayor Jenny Wilson's tax increase - the largest since 2019. Let voters decide on this 14% property tax hike.">
+    <meta name="keywords" content="Salt Lake County, Property Tax, Tax Referendum, Jenny Wilson, SLCo Tax, Utah Property Tax, Tax Increase, Salt Lake County Referendum, Chris Null">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votechrisnull.com/referendum-statement.html">
+    <meta property="og:title" content="Stop the Salt Lake County Property Tax Increase">
+    <meta property="og:description" content="Support the referendum to stop the largest property tax increase since 2019. Let voters decide.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -44,7 +53,9 @@
         .nav-dropdown li { margin: 0; }
         .nav-dropdown a { display: block; padding: 0.6rem 1.25rem; color: var(--blue); font-size: 0.85rem; text-transform: uppercase; white-space: nowrap; }
         .nav-dropdown a:hover { background: var(--light-gray); color: var(--red); }
-        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--blue); }
+        .mobile-menu-btn { display: none; background: none; border: none; width: 44px; height: 44px; cursor: pointer; color: var(--blue); border-radius: 8px; transition: background 0.2s; }
+        .mobile-menu-btn:hover { background: var(--light-gray); }
+        .menu-icon { width: 24px; height: 24px; }
 
         @media (max-width: 992px) { .nav { padding: 0 1.5rem; } }
 
@@ -186,16 +197,22 @@
             border-top: 1px solid #e2e8f0;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .nav { padding: 0 1rem; }
             .nav-container { height: 70px; }
             .nav-logo img { height: 50px; }
             .nav-tagline { display: none; }
-            .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; background: var(--white); flex-direction: column; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: left 0.3s; }
-            .nav-links.active { left: 0; }
-            .nav-item-issues { flex-direction: column; align-items: flex-start; width: 100%; }
-            .nav-dropdown { position: static; transform: none; margin-top: 0.5rem; margin-left: 1rem; min-width: auto; box-shadow: none; opacity: 1; visibility: visible; border-left: 2px solid var(--red); padding-left: 1rem; }
-            .mobile-menu-btn { display: block; }
+            .nav-links { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); flex-direction: column; justify-content: center; align-items: center; gap: 0.25rem; transform: translateX(100%); transition: transform 0.3s ease; z-index: 1000; }
+            .nav-links.active { transform: translateX(0); }
+            .nav-links li { width: 100%; text-align: center; }
+            .nav-links li a, .nav-dropdown-trigger { display: block; font-size: 1.2rem; padding: 0.9rem 2rem; }
+            .nav-links .nav-donate { display: inline-block; margin-top: 1.5rem; padding: 1rem 3rem; font-size: 1.1rem; }
+            .nav-item-issues { width: 100%; }
+            .nav-dropdown-trigger { display: none; }
+            .nav-dropdown { position: static; transform: none; opacity: 1; visibility: visible; box-shadow: none; background: transparent; padding: 0; min-width: auto; }
+            .nav-dropdown li a { font-size: 1.1rem; color: var(--blue-light); }
+            .mobile-menu-btn { display: flex; align-items: center; justify-content: center; z-index: 1001; }
+            .mobile-menu-btn.active { position: fixed; top: 13px; right: 1rem; }
             .page-hero { padding: 5rem 1rem 3rem; }
             .statement-section { padding: 2rem; }
             .cta-section { padding: 2rem; }
@@ -205,10 +222,10 @@
             .nav { padding: 0 0.75rem; }
             .nav-container { height: 65px; }
             .nav-logo img { height: 45px; }
-            .nav-links { top: 65px; }
             .page-hero { padding: 4rem 0.75rem 2rem; }
             .statement-section { padding: 1.5rem; }
             .cta-section { padding: 1.5rem; }
+            .mobile-menu-btn.active { top: 10px; right: 0.75rem; }
         }
     </style>
 </head>
@@ -222,7 +239,13 @@
                     <span class="tagline-bottom">Keeping the Dream Alive</span>
                 </div>
             </a>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#endorsements">Endorsements</a></li>
@@ -231,7 +254,7 @@
                     <span class="nav-dropdown-trigger">Issues</span>
                     <ul class="nav-dropdown">
                         <li><a href="referendum-statement.html">Property Tax Referendum</a></li>
-                        <li><a href="https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec">Riverton Supports ICE</a></li>
+                        <li><a href="riverton-open-letter.html">Riverton Supports ICE</a></li>
                     </ul>
                 </li>
                 <li><a href="index.html#volunteer">Get Involved</a></li>
@@ -277,11 +300,26 @@
 
     <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('menuBtn');
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+            
+            if (navLinks.classList.contains('active')) {
+                menuBtn.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+            } else {
+                menuBtn.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+            }
         }
         document.querySelectorAll('.nav-links a').forEach(function(link) {
             link.addEventListener('click', function() {
-                document.getElementById('navLinks').classList.remove('active');
+                const navLinks = document.getElementById('navLinks');
+                const menuBtn = document.getElementById('menuBtn');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuBtn.classList.remove('active');
+                    menuBtn.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+                }
             });
         });
     </script>

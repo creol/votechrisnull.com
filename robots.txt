@@ -1,0 +1,7 @@
+# Robots.txt for votechrisnull.com
+
+User-agent: *
+Disallow: /dev/
+
+# Allow everything else
+Allow: /

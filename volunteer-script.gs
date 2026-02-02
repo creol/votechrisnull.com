@@ -1,5 +1,5 @@
 var SITE_URL = 'https://votechrisnull.com';
-var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec';
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXqQTXe0FzrQTe5kusbh2INEEM0nOmR99QY8LaBU5cPdh5ooGG1xtwJQwbatCuw9i8KQ/exec';
 var SPREADSHEET_ID = '16U_S3SX-VXmobx4uWD47t-8nw8WVPlhmuxOfZcetdhQ';
 
 function escapeHtml(str) {

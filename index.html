@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chris Null for Salt Lake County Council District 5</title>
+    <title>Chris Null for Salt Lake County Council District 5 | Conservative Republican</title>
+    <meta name="description" content="Chris Null is running for Salt Lake County Council District 5. A conservative Republican fighting to reduce taxes, support public safety and ICE cooperation, and shrink government. Former SLCoGOP Chair, Utah Caucus Convention defender.">
+    <meta name="keywords" content="Chris Null, Salt Lake County, SLCo, Salt Lake County Council, District 5, SLCoGOP, Salt Lake County Republican, Salt Lake County Tax, Property Tax, Support ICE, Utah Caucus Convention, Utah Republican, Conservative, Election 2026">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votechrisnull.com/">
+    <meta property="og:title" content="Chris Null for Salt Lake County Council District 5">
+    <meta property="og:description" content="Conservative Republican fighting to reduce taxes, support public safety, and bring government closer to the people.">
+    <meta property="og:image" content="https://votechrisnull.com/hero5.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chris Null for Salt Lake County Council District 5">
+    <meta name="twitter:description" content="Conservative Republican fighting to reduce taxes, support public safety, and bring government closer to the people.">
+    <meta name="twitter:image" content="https://votechrisnull.com/hero5.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,6 +51,104 @@
             color: var(--text);
             line-height: 1.7;
             font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+
+        /* Floating Donate Button */
+        .floating-donate {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            animation: floatInDonate 1.5s ease-out forwards;
+        }
+
+        @keyframes floatInDonate {
+            0% {
+                transform: translateY(-50%) scale(1.5);
+                right: 30px;
+            }
+            60% {
+                transform: translateY(-50%) scale(1.5);
+                right: 30px;
+            }
+            100% {
+                transform: translateY(-50%) scale(1);
+                right: 0;
+            }
+        }
+
+        .floating-donate a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+            color: var(--white);
+            padding: 1.25rem 0.9rem;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px 0 0 8px;
+            box-shadow: -4px 4px 20px rgba(0,0,0,0.35);
+            transition: all 0.3s;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .floating-donate a:hover {
+            background: linear-gradient(135deg, var(--red-dark) 0%, #a01520 100%);
+            padding-right: 1.2rem;
+            box-shadow: -6px 6px 25px rgba(0,0,0,0.4);
+        }
+
+        .floating-donate .heart-icon {
+            width: 28px;
+            height: 28px;
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+        }
+
+        @media (max-width: 768px) {
+            .floating-donate {
+                top: auto;
+                bottom: 20px;
+                right: 20px;
+                animation: floatInDonateMobile 1.5s ease-out forwards;
+            }
+
+            @keyframes floatInDonateMobile {
+                0% {
+                    transform: scale(1.5);
+                    bottom: 40%;
+                    right: 30%;
+                }
+                60% {
+                    transform: scale(1.5);
+                    bottom: 40%;
+                    right: 30%;
+                }
+                100% {
+                    transform: scale(1);
+                    bottom: 20px;
+                    right: 20px;
+                }
+            }
+
+            .floating-donate a {
+                writing-mode: horizontal-tb;
+                flex-direction: row;
+                border-radius: 8px;
+                padding: 0.9rem 1.25rem;
+                font-size: 0.95rem;
+            }
+
+            .floating-donate .heart-icon {
+                width: 22px;
+                height: 22px;
+            }
         }
 
         /* Navigation */
@@ -196,12 +310,28 @@
             display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
             cursor: pointer;
             color: var(--blue);
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--light-gray);
+        }
+
+        .menu-icon {
+            width: 24px;
+            height: 24px;
         }
 
         /* Hero Section */
+        .hero-headshot-mobile {
+            display: none;
+        }
+
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
@@ -545,6 +675,76 @@
             line-height: 1;
         }
 
+        /* Priorities Section */
+        .priorities {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .priorities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .priority-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--light-gray);
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--red);
+        }
+
+        .priority-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        }
+
+        .priority-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .priority-icon svg {
+            width: 36px;
+            height: 36px;
+            color: var(--white);
+        }
+
+        .priority-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            color: var(--blue);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .priority-card p {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .priority-card .highlight {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        @media (max-width: 900px) {
+            .priorities-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
         /* Media Section */
         .media {
             padding: 6rem 2rem;
@@ -883,57 +1083,113 @@
         }
 
         /* Mobile Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .nav { padding: 0 1rem; }
             .nav-container { height: 70px; }
             .nav-logo img { height: 50px; }
-            .nav-tagline {
-                display: none;
-            }
+            .nav-tagline { display: none; }
 
             .nav-links {
                 position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
                 background: var(--white);
                 flex-direction: column;
-                padding: 2rem;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                transition: left 0.3s;
+                justify-content: center;
+                align-items: center;
+                gap: 0.25rem;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
             }
 
             .nav-links.active {
-                left: 0;
+                transform: translateX(0);
             }
 
-            .nav-item-issues {
-                flex-direction: column;
-                align-items: flex-start;
+            .nav-links li {
                 width: 100%;
+                text-align: center;
+            }
+
+            .nav-links li a,
+            .nav-dropdown-trigger {
+                display: block;
+                font-size: 1.2rem;
+                padding: 0.9rem 2rem;
+            }
+
+            .nav-links .donate-btn {
+                display: inline-block;
+                margin-top: 1.5rem;
+                padding: 1rem 3rem;
+                font-size: 1.1rem;
+            }
+
+            /* Show Issues dropdown inline on mobile */
+            .nav-item-issues {
+                width: 100%;
+            }
+
+            .nav-dropdown-trigger {
+                display: none;
             }
 
             .nav-dropdown {
                 position: static;
                 transform: none;
-                margin-top: 0.5rem;
-                margin-left: 1rem;
-                padding-left: 0;
-                min-width: auto;
-                box-shadow: none;
                 opacity: 1;
                 visibility: visible;
-                border-left: 2px solid var(--red);
-                padding-left: 1rem;
+                box-shadow: none;
+                background: transparent;
+                padding: 0;
+                min-width: auto;
+            }
+
+            .nav-dropdown li a {
+                font-size: 1.1rem;
+                color: var(--blue-light);
             }
 
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1001;
             }
+
+            .mobile-menu-btn.active {
+                position: fixed;
+                top: 13px;
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
 
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .hero-headshot-mobile {
+                display: block;
+                margin: 0 auto 1.5rem;
+            }
+
+            .hero-headshot-mobile img {
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid var(--white);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.3);
             }
 
             .hero-content h1 {
@@ -1034,12 +1290,26 @@
             .nav { padding: 0 0.75rem; }
             .nav-container { height: 65px; }
             .nav-logo img { height: 45px; }
-            .nav-links { top: 65px; }
             .hero { padding: 4rem 0.75rem 2rem; }
+            
+            .mobile-menu-btn.active {
+                top: 10px;
+                right: 0.75rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Floating Donate Button -->
+    <div class="floating-donate">
+        <a href="https://secure.anedot.com/friends-of-chris-null/ccd5" target="_blank" rel="noopener">
+            <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            Donate
+        </a>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
@@ -1053,7 +1323,13 @@
                     <span class="tagline-bottom">Keeping the Dream Alive</span>
                 </div>
             </div>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#endorsements">Endorsements</a></li>
@@ -1062,11 +1338,10 @@
                     <span class="nav-dropdown-trigger">Issues</span>
                     <ul class="nav-dropdown">
                         <li><a href="referendum-statement.html">Property Tax Referendum</a></li>
-                        <li><a href="https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec">Riverton Supports ICE</a></li>
+                        <li><a href="riverton-open-letter.html">Riverton Supports ICE</a></li>
                     </ul>
                 </li>
                 <li><a href="#volunteer">Get Involved</a></li>
-                <li><a href="https://secure.anedot.com/friends-of-chris-null/ccd5" class="donate-btn">Donate</a></li>
             </ul>
         </div>
     </nav>
@@ -1075,6 +1350,9 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
+                <div class="hero-headshot-mobile">
+                    <img src="hero5headshot.png" alt="Chris Null">
+                </div>
                 <h1>CHRIS <span>NULL</span></h1>
                 <div class="hero-office">Salt Lake County Council District 5</div>
                 <p class="hero-tagline">Conservative Republican fighting to Stop Excessive Taxing and reduce bureaucratic inefficiencies</p>
@@ -1103,6 +1381,48 @@
             <div class="hero-image">
                 <!-- Hero Image - Replace hero.png with your candidate photo -->
                 <img src="hero5.png" alt="Chris Null">
+            </div>
+        </div>
+    </section>
+
+    <!-- Priorities Section -->
+    <section id="priorities" class="priorities">
+        <div class="container">
+            <div class="section-header">
+                <h2>What I Want to Accomplish</h2>
+                <p>My priorities if elected to County Council</p>
+                <div class="red-line"></div>
+            </div>
+            <div class="priorities-grid">
+                <div class="priority-card">
+                    <div class="priority-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3>Reduce Taxes</h3>
+                    <p>I will lower taxes through responsible spending and by consolidating duplicate services under city control to <strong class="highlight">eliminate double taxation</strong>.</p>
+                </div>
+                <div class="priority-card">
+                    <div class="priority-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Public Safety</h3>
+                    <p>I will <strong class="highlight">strengthen cooperation among all levels of law enforcement</strong> to keep our county safe. Including support for cooperating with U.S. Immigration and Customs Enforcement to ensure safe operations.</p>
+                </div>
+                <div class="priority-card">
+                    <div class="priority-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Shrink Government</h3>
+                    <p>As cities grow, the county should shrink. SLCo is the county's fourth-largest employer; we must reduce bureaucracy and empower cities to lead, <strong class="highlight">bringing government closer to the people</strong>.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1279,7 +1599,17 @@
 
     <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('menuBtn');
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+            
+            // Change icon to X when open
+            if (navLinks.classList.contains('active')) {
+                menuBtn.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+            } else {
+                menuBtn.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+            }
         }
 
         // Smooth scroll for navigation links
@@ -1292,7 +1622,27 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    document.getElementById('navLinks').classList.remove('active');
+                    // Close mobile menu
+                    const navLinks = document.getElementById('navLinks');
+                    const menuBtn = document.getElementById('menuBtn');
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        menuBtn.classList.remove('active');
+                        menuBtn.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+                    }
+                }
+            });
+        });
+        
+        // Close menu when clicking any nav link (for external links too)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                const menuBtn = document.getElementById('menuBtn');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuBtn.classList.remove('active');
+                    menuBtn.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
                 }
             });
         });
@@ -1309,7 +1659,7 @@
 
         // Volunteer Form Handler
         // Google Apps Script Web App URL for form submissions
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXqQTXe0FzrQTe5kusbh2INEEM0nOmR99QY8LaBU5cPdh5ooGG1xtwJQwbatCuw9i8KQ/exec';
 
         document.getElementById('volunteerForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1409,11 +1759,4 @@
         }
 
         // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
-</body>
-</html>
+        document.addE

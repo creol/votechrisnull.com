@@ -3,12 +3,590 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Riverton's Partnership with ICE</title>
-    <meta http-equiv="refresh" content="0;url=https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec">
-    <script>window.location.replace("https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec");</script>
-    <link rel="canonical" href="https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec">
+    <title>Support Riverton's Partnership with ICE | Open Letter</title>
+    <meta name="description" content="An open letter supporting Riverton Utah's 287(g) partnership with ICE and U.S. Immigration and Customs Enforcement. Sign your name to support public safety and the rule of law in Salt Lake County.">
+    <meta name="keywords" content="Riverton Utah, ICE, 287g, Immigration, Support ICE, Salt Lake County, Public Safety, Trent Staggs, Utah Law Enforcement, Chris Null">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votechrisnull.com/riverton-open-letter.html">
+    <meta property="og:title" content="Support Riverton's Partnership with ICE">
+    <meta property="og:description" content="An open letter supporting Riverton's partnership with ICE. Add your name to support public safety and the rule of law.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #EE2737;
+            --red-dark: #c5303c;
+            --blue: #002868;
+            --blue-dark: #001a4d;
+            --blue-light: #457b9d;
+            --white: #fff;
+            --light-gray: #f8f9fa;
+            --text: #2b2d42;
+            --text-light: #6c757d;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--light-gray);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0 2rem;
+        }
+        @media (max-width: 992px) { .nav { padding: 0 1.5rem; } }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        .nav-logo img { height: 60px; width: auto; }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+        }
+        .nav-tagline { display: flex; flex-direction: column; line-height: 1.2; }
+        .tagline-top {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .tagline-bottom {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--red);
+            font-weight: 500;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            font-family: 'Oswald', sans-serif;
+        }
+        .nav-links a:hover, .nav-dropdown-trigger:hover { color: var(--red); }
+        .nav-dropdown-trigger {
+            cursor: pointer;
+            color: var(--blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Oswald', sans-serif;
+        }
+        .nav-donate {
+            background: var(--red);
+            color: var(--white) !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            transition: all 0.3s !important;
+        }
+        .nav-donate:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+        }
+        .nav-item-issues { position: relative; }
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 0.5rem;
+            min-width: 220px;
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 4px;
+            list-style: none;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1001;
+        }
+        .nav-item-issues:hover .nav-dropdown { opacity: 1; visibility: visible; }
+        .nav-dropdown li { margin: 0; }
+        .nav-dropdown a {
+            display: block;
+            padding: 0.6rem 1.25rem;
+            color: var(--blue);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .nav-dropdown a:hover { background: var(--light-gray); color: var(--red); }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            color: var(--blue);
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .mobile-menu-btn:hover { background: var(--light-gray); }
+        .menu-icon { width: 24px; height: 24px; }
+        
+        @media (max-width: 900px) {
+            .nav { padding: 0 1rem; }
+            .nav-container { height: 70px; }
+            .nav-logo img { height: 50px; }
+            .nav-tagline { display: none; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.25rem;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+            }
+            .nav-links.active { transform: translateX(0); }
+            .nav-links li { width: 100%; text-align: center; }
+            .nav-links li a, .nav-dropdown-trigger {
+                display: block;
+                font-size: 1.2rem;
+                padding: 0.9rem 2rem;
+            }
+            .nav-links .nav-donate {
+                display: inline-block;
+                margin-top: 1.5rem;
+                padding: 1rem 3rem;
+                font-size: 1.1rem;
+            }
+            .nav-item-issues { width: 100%; }
+            .nav-dropdown-trigger { display: none; }
+            .nav-dropdown {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                background: transparent;
+                padding: 0;
+                min-width: auto;
+            }
+            .nav-dropdown li a { font-size: 1.1rem; color: var(--blue-light); }
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1001;
+            }
+            .mobile-menu-btn.active {
+                position: fixed;
+                top: 13px;
+                right: 1rem;
+            }
+            .letter-wrapper { padding-top: 90px; }
+            .letter-container { padding: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .nav { padding: 0 0.75rem; }
+            .nav-container { height: 65px; }
+            .nav-logo img { height: 45px; }
+            .letter-wrapper { padding-top: 85px; }
+            .letter-container { padding: 1.25rem; }
+            .signature-list th, .signature-list td {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.5rem 0.4rem 0;
+            }
+            .mobile-menu-btn.active {
+                top: 10px;
+                right: 0.75rem;
+            }
+        }
+        
+        /* Letter Content */
+        .letter-wrapper {
+            padding-top: 100px;
+            padding-bottom: 3rem;
+        }
+        .letter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            border-radius: 8px;
+            line-height: 1.8;
+            color: var(--text);
+        }
+        .letter-container h1 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--blue);
+            text-align: center;
+            border-bottom: 3px solid var(--red);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            text-transform: uppercase;
+        }
+        .letter-container .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .letter-container p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+        .letter-container .salutation { margin-top: 2rem; }
+        .call-to-action {
+            background: rgba(69,123,157,0.08);
+            border-left: 4px solid var(--blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .call-to-action h3 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--blue);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            min-height: 44px;
+            background: var(--red);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Oswald', sans-serif;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+        .cta-btn:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Floating side button */
+        .floating-cta {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            animation: floatIn 1.5s ease-out forwards;
+        }
+        
+        @keyframes floatIn {
+            0% {
+                transform: translateY(-50%) scale(1.8);
+                right: 50px;
+            }
+            60% {
+                transform: translateY(-50%) scale(1.8);
+                right: 50px;
+            }
+            100% {
+                transform: translateY(-50%) scale(1);
+                right: 0;
+            }
+        }
+        
+        .floating-cta a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+            color: var(--white);
+            padding: 1.25rem 0.9rem;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px 0 0 8px;
+            box-shadow: -4px 4px 20px rgba(0,0,0,0.35);
+            transition: all 0.3s;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
+        .floating-cta a:hover {
+            background: linear-gradient(135deg, var(--red-dark) 0%, #a01520 100%);
+            padding-right: 1.2rem;
+            box-shadow: -6px 6px 25px rgba(0,0,0,0.4);
+        }
+        
+        .floating-cta .pen-icon {
+            width: 28px;
+            height: 28px;
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+        }
+        
+        @media (max-width: 768px) {
+            .floating-cta {
+                top: auto;
+                bottom: 20px;
+                right: 20px;
+                animation: floatInMobile 1.5s ease-out forwards;
+            }
+            
+            @keyframes floatInMobile {
+                0% {
+                    transform: scale(1.5);
+                    bottom: 40%;
+                    right: 30%;
+                }
+                60% {
+                    transform: scale(1.5);
+                    bottom: 40%;
+                    right: 30%;
+                }
+                100% {
+                    transform: scale(1);
+                    bottom: 20px;
+                    right: 20px;
+                }
+            }
+            
+            .floating-cta a {
+                writing-mode: horizontal-tb;
+                flex-direction: row;
+                border-radius: 8px;
+                padding: 0.9rem 1.25rem;
+                font-size: 0.95rem;
+            }
+            
+            .floating-cta .pen-icon {
+                width: 22px;
+                height: 22px;
+            }
+        }
+        
+        /* Signatures */
+        .signature-section {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        .signature-section h3 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--blue);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .signature-list {
+            margin-top: 1rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .signature-list table {
+            width: 100%;
+            min-width: 280px;
+            border-collapse: collapse;
+        }
+        .signature-list th {
+            font-family: 'Oswald', sans-serif;
+            text-align: left;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid var(--blue);
+            color: var(--blue);
+            text-transform: uppercase;
+        }
+        .signature-list td {
+            padding: 0.35rem 0;
+            border-bottom: none;
+        }
+        #signatureLoading, #signatureEmpty {
+            color: var(--text-light);
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to <a href="https://script.google.com/macros/s/AKfycbzXi1mE5Tw2p-qtiOQlQMsPbK4MxtdlIvtAEMouFqQQ3A0iDr5l9hrGQD70b_zjkP_bSQ/exec">Support Riverton's Partnership with ICE</a>...</p>
+    <!-- Floating side CTA -->
+    <div class="floating-cta" id="sign-letter">
+        <a href="open-letter-signup.html">
+            <svg class="pen-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z"/>
+            </svg>
+            Add Your Name
+        </a>
+    </div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-logo"><img src="SLCo5_Logo.png" alt="Chris Null for SLCo Council 5"></div>
+                <div class="nav-tagline">
+                    <span class="tagline-top">America First Leadership</span>
+                    <span class="tagline-bottom">Keeping the Dream Alive</span>
+                </div>
+            </a>
+            <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#endorsements">Endorsements</a></li>
+                <li><a href="index.html#media">Media</a></li>
+                <li class="nav-item-issues">
+                    <span class="nav-dropdown-trigger">Issues</span>
+                    <ul class="nav-dropdown">
+                        <li><a href="referendum-statement.html">Property Tax Referendum</a></li>
+                        <li><a href="riverton-open-letter.html">Riverton Supports ICE</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#volunteer">Get Involved</a></li>
+                <li><a href="https://secure.anedot.com/friends-of-chris-null/ccd5" class="nav-donate">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="letter-wrapper">
+        <article class="letter-container">
+            <h1>An Open Letter to the Citizens of Riverton, Utah</h1>
+            <p class="subtitle">In Support of Our City's Partnership with ICE</p>
+            
+            <p class="salutation">Dear Fellow Citizens of Riverton,</p>
+            
+            <p>We write today to express our gratitude to the leaders—past and present—who have made Riverton a model for public safety in Utah.</p>
+            
+            <p>In August 2025, former Mayor Trent Staggs and Police Chief Shane Taylor demonstrated true foresight when they made Riverton the first city in Utah to sign a 287(g) Memorandum of Agreement with U.S. Immigration and Customs Enforcement. We are equally grateful to Mayor Tish Buroker and our newly elected City Council for their continued support of this partnership. This continuity demonstrates that Riverton's commitment to the rule of law transcends any single administration.</p>
+            
+            <p>Our nation was founded on the principle that laws, fairly and consistently applied, protect the rights and safety of all people. When laws are enforced inconsistently or when the rules are unclear, the result is not freedom but fear. Riverton chose clarity and consistency—and our community is safer for it.</p>
+            
+            <p>When local leaders work alongside local police and federal agencies, operations run more smoothly and safely. This partnership allows our police department to work directly with federal partners, creating a "force multiplier" for public safety. Interference with law enforcement operations, by contrast, creates serious dangers for officers, subjects, and bystanders alike.</p>
+            
+            <p>We hope other cities throughout Salt Lake County will follow Riverton's example. Together, we can make our region a safer and better place to live for all law-abiding residents.</p>
+            
+            <p><strong>Respectfully submitted,</strong></p>
+            <p><strong>Concerned Citizens of Riverton and Salt Lake County</strong></p>
+            
+            <div class="signature-section">
+                <h3>Signatures</h3>
+                <div class="signature-list" id="signatureListContainer">
+                    <p id="signatureLoading">Loading signatures...</p>
+                    <table id="signatureTable" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>City, State</th>
+                            </tr>
+                        </thead>
+                        <tbody id="signatureList"></tbody>
+                    </table>
+                    <p id="signatureEmpty" style="display: none;">
+                        <em>No signatures yet. <a href="open-letter-signup.html">Be the first to sign!</a></em>
+                    </p>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('menuBtn');
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+            
+            if (navLinks.classList.contains('active')) {
+                menuBtn.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+            } else {
+                menuBtn.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+            }
+        }
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                const menuBtn = document.getElementById('menuBtn');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuBtn.classList.remove('active');
+                    menuBtn.innerHTML = '<svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+                }
+            });
+        });
+
+        // Load signatures
+        async function loadSignatures() {
+            try {
+                const response = await fetch('/api/signatures.php');
+                const data = await response.json();
+                
+                const loadingEl = document.getElementById('signatureLoading');
+                const tableEl = document.getElementById('signatureTable');
+                const emptyEl = document.getElementById('signatureEmpty');
+                const listEl = document.getElementById('signatureList');
+                
+                loadingEl.style.display = 'none';
+                
+                if (data.success && data.signatures && data.signatures.length > 0) {
+                    tableEl.style.display = 'table';
+                    listEl.innerHTML = data.signatures.map(sig => {
+                        const cityState = (sig.city && sig.state) 
+                            ? `${sig.city}, ${sig.state}` 
+                            : (sig.city || sig.state || '—');
+                        return `<tr><td>${sig.name}</td><td>${cityState}</td></tr>`;
+                    }).join('');
+                } else {
+                    emptyEl.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Failed to load signatures:', error);
+                document.getElementById('signatureLoading').textContent = 'Unable to load signatures.';
+            }
+        }
+        
+        loadSignatures();
+    </script>
 </body>
 </html>

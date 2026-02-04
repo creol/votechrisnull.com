@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #EE2737;
+            --blue: #002868;
+            --blue-dark: #001a4d;
+            --white: #ffffff;
+            --text: #2b2d42;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100vh;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            position: relative;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,100 100,0 100,100" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: cover;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 992px) {
+            .nav { padding: 0 1.5rem; }
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-tagline {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .tagline-top {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline-bottom {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--red);
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .nav { padding: 0 1rem; }
+            .nav-container { height: 70px; }
+            .nav-logo img { height: 50px; }
+            .nav-tagline { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .nav { padding: 0 0.75rem; }
+            .nav-container { height: 65px; }
+            .nav-logo img { height: 45px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-logo">
+                    <img src="SLCo5_Logo.png" alt="Chris Null for SLCo Council 5">
+                </div>
+                <div class="nav-tagline">
+                    <span class="tagline-top">America First Leadership</span>
+                    <span class="tagline-bottom">Keeping the Dream Alive</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

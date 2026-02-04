@@ -1,6 +1,12 @@
 # Redirect /donate to Anedot donation page
 Redirect 301 /donate https://secure.anedot.com/friends-of-chris-null/ccd5
 
+# Redirect /sign to Riverton open letter (dev)
+Redirect 301 /sign /dev/votechrisnull.com/riverton-open-letter.html
+
+# Redirect /support-ice to Riverton open letter (dev)
+Redirect 301 /support-ice /dev/votechrisnull.com/riverton-open-letter.html
+
 # Enable serving .html files without extension
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d

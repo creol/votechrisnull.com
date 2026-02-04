@@ -523,33 +523,7 @@
                         <h3>Where do you live?</h3>
                         <div class="form-group">
                             <label for="city" class="required">City</label>
-                            <select id="city" name="city">
-                                <option value="">Select city...</option>
-                                <option value="Alta">Alta</option>
-                                <option value="Bluffdale">Bluffdale</option>
-                                <option value="Brighton">Brighton</option>
-                                <option value="Cottonwood Heights">Cottonwood Heights</option>
-                                <option value="Copperton">Copperton</option>
-                                <option value="Draper">Draper</option>
-                                <option value="Emigration Canyon">Emigration Canyon</option>
-                                <option value="Herriman">Herriman</option>
-                                <option value="Holladay">Holladay</option>
-                                <option value="Kearns">Kearns</option>
-                                <option value="Magna">Magna</option>
-                                <option value="Midvale">Midvale</option>
-                                <option value="Millcreek">Millcreek</option>
-                                <option value="Murray">Murray</option>
-                                <option value="Riverton">Riverton</option>
-                                <option value="Salt Lake City">Salt Lake City</option>
-                                <option value="Sandy">Sandy</option>
-                                <option value="South Jordan">South Jordan</option>
-                                <option value="South Salt Lake">South Salt Lake</option>
-                                <option value="Taylorsville">Taylorsville</option>
-                                <option value="West Jordan">West Jordan</option>
-                                <option value="West Valley City">West Valley City</option>
-                                <option value="White City">White City</option>
-                                <option value="Other (Out of State)">Other (Out of State)</option>
-                            </select>
+                            <input type="text" id="city" name="city" required placeholder="Enter your city">
                         </div>
                         <div class="form-group" id="stateGroup">
                             <label for="state" class="required">State</label>
@@ -789,28 +763,20 @@
         document.querySelectorAll('input[name="rivertonResident"]').forEach(radio => {
             radio.addEventListener('change', function() {
                 var section = document.getElementById('cityStateSection');
-                var citySelect = document.getElementById('city');
+                var cityInput = document.getElementById('city');
                 var stateSelect = document.getElementById('state');
                 if (this.value === 'no') {
                     section.style.display = 'block';
-                    citySelect.required = true;
+                    cityInput.required = true;
                     stateSelect.required = true;
                 } else {
                     section.style.display = 'none';
-                    citySelect.required = false;
+                    cityInput.required = false;
                     stateSelect.required = false;
-                    citySelect.value = '';
+                    cityInput.value = '';
                     stateSelect.value = '';
                 }
             });
-        });
-
-        // When selecting a Utah city (not Other), default state to Utah
-        document.getElementById('city').addEventListener('change', function() {
-            var stateSelect = document.getElementById('state');
-            if (this.value && this.value !== 'Other (Out of State)') {
-                stateSelect.value = 'Utah';
-            }
         });
 
         // Show caucus info when user says they need more info
@@ -840,7 +806,7 @@
                 city = 'Riverton';
                 state = 'Utah';
             } else {
-                city = document.getElementById('city').value || '';
+                city = document.getElementById('city').value.trim() || '';
                 state = document.getElementById('state').value || '';
             }
             const attending = document.querySelector('input[name="attending"]:checked')?.value;

@@ -1,16 +1,6 @@
 [
     {
         "timestamp": "2026-01-30 12:00:00",
-        "name": "Christopher Null",
-        "email": "",
-        "phone": "",
-        "city": "Riverton",
-        "state": "Utah",
-        "attending": "",
-        "needInfo": ""
-    },
-    {
-        "timestamp": "2026-01-30 12:00:00",
         "name": "Amy Null",
         "email": "",
         "phone": "",
@@ -30,13 +20,243 @@
         "needInfo": ""
     },
     {
-        "timestamp": "2026-01-31 14:00:00",
-        "name": "Andy Pierucci",
+        "timestamp": "2026-02-03 10:29:46",
+        "name": "Kaiden Tischner",
         "email": "",
         "phone": "",
+        "city": "Herriman",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 10:33:53",
+        "name": "Sarah Dawn Montes",
+        "email": "Sarahdawnmontes@gmail.com",
+        "phone": "1801440460",
+        "city": "South Salt Lake",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": ""
+    },
+    {
+        "timestamp": "2026-02-03 10:37:15",
+        "name": "Jared W Christensen",
+        "email": "discoverrealestate@gmail.com",
+        "phone": "8012302142",
+        "city": "Herriman",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 10:38:02",
+        "name": "Mark Robert Ziegler",
+        "email": "mark.ziegler2021@gmail.com",
+        "phone": "8013499153",
+        "city": "Midvale",
+        "state": "Utah",
+        "attending": "maybe",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 10:44:14",
+        "name": "Devin Abel",
+        "email": "devin.abel2010@gmail.com",
+        "phone": "1916517561",
+        "city": "Herriman",
+        "state": "Utah",
+        "attending": "maybe",
+        "needInfo": "yes"
+    },
+    {
+        "timestamp": "2026-02-03 10:44:26",
+        "name": "Nicholas J Roberts",
+        "email": "",
+        "phone": "3854210048",
+        "city": "Sandy",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "yes"
+    },
+    {
+        "timestamp": "2026-02-03 10:45:11",
+        "name": "Burgess Owens",
+        "email": "",
+        "phone": "",
+        "city": "Draper",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 10:46:28",
+        "name": "Goud Maragani",
+        "email": "goud.p.maragani@gmail.com",
+        "phone": "3852377960",
         "city": "Riverton",
         "state": "Utah",
-        "attending": "",
-        "needInfo": ""
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 11:09:35",
+        "name": "Lisa Stratford Marble",
+        "email": "LisaSMarble@gmail.com",
+        "phone": "8013885648",
+        "city": "Box Elder",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 11:15:28",
+        "name": "Aaron C Bullen",
+        "email": "",
+        "phone": "",
+        "city": "Salt Lake City",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 11:20:29",
+        "name": "Don Cann",
+        "email": "canco55@gmail.com",
+        "phone": "8018152645",
+        "city": "Sandy",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 11:25:37",
+        "name": "CHARLOTTE BOWERBANK",
+        "email": "csi4n6@gmail.com",
+        "phone": "8018643955",
+        "city": "Sandy",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 11:27:22",
+        "name": "Karl Jurek",
+        "email": "",
+        "phone": "",
+        "city": "Murray",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 11:27:58",
+        "name": "Michael Burge",
+        "email": "mikeburge@gmail.com",
+        "phone": "8016735158",
+        "city": "Riverton",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 11:35:48",
+        "name": "Britshana Barfuss",
+        "email": "",
+        "phone": "",
+        "city": "Layton",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 11:44:08",
+        "name": "Emily Jewkes",
+        "email": "",
+        "phone": "",
+        "city": "Provo",
+        "state": "Utah",
+        "attending": "maybe",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 12:55:28",
+        "name": "Mike Carpenter",
+        "email": "",
+        "phone": "",
+        "city": "Other (Out of State)",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 13:02:55",
+        "name": "Riley Beesley",
+        "email": "",
+        "phone": "",
+        "city": "Bountiful",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 13:06:38",
+        "name": "Tyler Boyles",
+        "email": "",
+        "phone": "",
+        "city": "Kamas",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 13:19:14",
+        "name": "Kelly Hoskins",
+        "email": "kellyaddyson02@gmail.com",
+        "phone": "2085098449",
+        "city": "Logan",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-03 14:48:34",
+        "name": "Ryan L Mahoney",
+        "email": "ryan.mahoney4utah@gmail.com",
+        "phone": "8015540064",
+        "city": "West Valley City",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-04 07:10:45",
+        "name": "Melanie Mortensen",
+        "email": "",
+        "phone": "",
+        "city": "Salt Lake City",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-04 08:12:11",
+        "name": "Robert Axson",
+        "email": "",
+        "phone": "",
+        "city": "Cottonwood Heights",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-02-04 08:17:35",
+        "name": "Stephen Miller",
+        "email": "smiller.lend@gmail.com",
+        "phone": "8017872494",
+        "city": "West Jordan",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "yes"
     }
 ]

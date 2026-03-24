@@ -675,6 +675,76 @@
             line-height: 1;
         }
 
+        /* Events Section */
+        .events {
+            padding: 6rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .events-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .event-item {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 1.25rem;
+            border-left: 4px solid var(--red);
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .event-date {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            color: var(--red);
+            white-space: nowrap;
+            min-width: 140px;
+            font-weight: 600;
+        }
+
+        .event-details h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.25rem;
+            color: var(--blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .event-details p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .event-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .event-date {
+                min-width: auto;
+            }
+        }
+
+        .read-more-btn {
+            color: var(--red);
+            font-weight: 600;
+            cursor: pointer;
+            font-style: normal;
+            transition: color 0.3s;
+        }
+
+        .read-more-btn:hover {
+            color: var(--red-dark);
+            text-decoration: underline;
+        }
+
         /* Priorities Section */
         .priorities {
             padding: 5rem 2rem;
@@ -1334,6 +1404,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#endorsements">Endorsements</a></li>
                 <li><a href="#media">Media</a></li>
+                <li><a href="#events">Events</a></li>
                 <li class="nav-item-issues">
                     <span class="nav-dropdown-trigger">Issues</span>
                     <ul class="nav-dropdown">
@@ -1465,7 +1536,25 @@
                 <div class="red-line"></div>
             </div>
             
-            <div class="endorsement-card">
+            <div class="endorsement-card" id="staggs-endorsement">
+                <div class="endorsement-header">
+                    <img src="images/Trent-Staggs.jpg" alt="Mayor Trent Staggs" class="endorsement-photo" loading="lazy">
+                    <div class="endorsement-info">
+                        <h3>Mayor Trent Staggs</h3>
+                        <p>Former Mayor, Riverton City | Regional Advocate, U.S. Small Business Administration</p>
+                    </div>
+                </div>
+                <div class="endorsement-quote" id="staggs-quote">
+                    I am pleased to endorse Chris Null for Salt Lake County Council, District 5. Chris understands what I've worked to prove in Riverton: government closest to the people governs best. When we created the Riverton Police Department, we returned more than $20 million to taxpayers while expanding our force by<span class="read-more-btn" onclick="toggleEndorsement('staggs-quote', this)">... Read More</span><span class="endorsement-hidden" style="display: none;"> 14 officers. We did more with less because local leaders are more responsive, more accountable, and more aligned with the needs of their communities.<br><br>
+                    Chris will bring this same principle to the County Council. His vision—as city governments grow, county government must shrink—is exactly right. Salt Lake County taxpayers are currently paying twice for services their cities already provide. Parks, recreation centers, youth programs—these are better managed at the local level where leaders know their neighborhoods and answer directly to residents.<br><br>
+                    I have seen firsthand the results of fiscal discipline and innovative governance. Under my administration, Riverton has not raised taxes in nearly a decade. We have the lowest utility fees in the valley. We've done this not by cutting essential services, but by eliminating duplication, demanding accountability, and focusing limited tax dollars on what only government can do.<br><br>
+                    Chris Null shares this commitment to fiscal responsibility and taxpayer protection. At a time when the Salt Lake County Mayor proposed a nearly 20% property tax increase—the largest in decades—we need leaders who will push back on government expansion and fight for working families, seniors on fixed incomes, and small business owners who are already stretched thin.<br><br>
+                    Chris has the background to deliver. As former Chair of the Salt Lake County Republican Party and current Treasurer of the Utah Republican Party, he understands conservative governance and party platform principles. More importantly, he has the conviction to stand firm against the partisan overreach we've seen from the current county administration.<br><br>
+                    District 5 deserves a councilmember who will champion limited government, local control, and responsible stewardship of taxpayer dollars. Chris Null is that candidate. I encourage every delegate and voter in District 5 to support Chris Null for Salt Lake County Council.<br><br><span class="read-more-btn" onclick="toggleEndorsement('staggs-quote', this)">Read Less</span></span>
+                </div>
+            </div>
+
+            <div class="endorsement-card" id="pierucci-endorsement">
                 <div class="endorsement-header">
                     <img src="Andrew_Pierucci.jpg" alt="Andy Pierucci" class="endorsement-photo" loading="lazy">
                     <div class="endorsement-info">
@@ -1473,8 +1562,8 @@
                         <p>Riverton City Councilman, District 1</p>
                     </div>
                 </div>
-                <div class="endorsement-quote">
-                    Chris Null is the bold leader Salt Lake County needs right now. Chris isn't afraid to make the tough decisions necessary to streamline government and allow us to keep more of our hard earned money. He will eliminate duplicate county services, allowing cities like Riverton to thrive as they grow while the county shrinks and refocuses on its limited core responsibilities. Most importantly, Chris will help build a county that prioritizes families and lasting communities, not out of touch special interests. I wholeheartedly endorse my friend, Chris Null for Salt Lake County Council. He is the right choice at the right time for our county.
+                <div class="endorsement-quote" id="pierucci-quote">
+                    Chris Null is the bold leader Salt Lake County needs right now. Chris isn't afraid to make the tough decisions necessary to streamline government and allow us to keep more of our hard earned money.<span class="read-more-btn" onclick="toggleEndorsement('pierucci-quote', this)">... Read More</span><span class="endorsement-hidden" style="display: none;"> He will eliminate duplicate county services, allowing cities like Riverton to thrive as they grow while the county shrinks and refocuses on its limited core responsibilities. Most importantly, Chris will help build a county that prioritizes families and lasting communities, not out of touch special interests. I wholeheartedly endorse my friend, Chris Null for Salt Lake County Council. He is the right choice at the right time for our county.<br><br><span class="read-more-btn" onclick="toggleEndorsement('pierucci-quote', this)">Read Less</span></span>
                 </div>
             </div>
         </div>
@@ -1510,6 +1599,57 @@
             </div>
         </div>
     </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <p>Come meet Chris and get involved in the campaign</p>
+                <div class="red-line"></div>
+            </div>
+            <ul class="events-list" id="events-list"></ul>
+        </div>
+    </section>
+
+    <script>
+        // =============================================
+        // EVENT DATA - Edit this array to update events
+        // =============================================
+        const campaignEvents = [
+            {
+                date: "March 25, 2026",
+                time: "6:00 – 8:00 PM",
+                title: "Meet & Greet",
+                location: "Location TBD"
+            },
+            {
+                date: "March 28, 2026",
+                time: "6:00 – 8:00 PM",
+                title: "Meet & Greet",
+                location: "Location TBD"
+            },
+            {
+                date: "April 18, 2026",
+                time: "",
+                title: "SLCo GOP County Nominating Convention",
+                location: "Cottonwood High School, 5715 S 1300 E, Murray, UT 84121"
+            }
+        ];
+
+        (function renderEvents() {
+            const list = document.getElementById('events-list');
+            list.innerHTML = campaignEvents.map(e => `
+                <li class="event-item">
+                    <div class="event-date">${e.date}${e.time ? '<br>' + e.time : ''}</div>
+                    <div class="event-details">
+                        <h3>${e.title}</h3>
+                        <p>${e.location}</p>
+                    </div>
+                </li>
+            `).join('');
+        })();
+    </script>
 
     <!-- Volunteer Section -->
     <section id="volunteer" class="volunteer">
@@ -1599,6 +1739,20 @@
     </footer>
 
     <script>
+        function toggleEndorsement(quoteId, btn) {
+            const quote = document.getElementById(quoteId);
+            const hiddenContent = quote.querySelector('.endorsement-hidden');
+            const readMoreBtn = quote.querySelector('.read-more-btn');
+
+            if (hiddenContent.style.display === 'none') {
+                hiddenContent.style.display = 'inline';
+                readMoreBtn.style.display = 'none';
+            } else {
+                hiddenContent.style.display = 'none';
+                readMoreBtn.style.display = 'inline';
+            }
+        }
+
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             const menuBtn = document.getElementById('menuBtn');

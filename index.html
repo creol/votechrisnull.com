@@ -12,13 +12,13 @@
     <meta property="og:url" content="https://votechrisnull.com/">
     <meta property="og:title" content="Chris Null for Salt Lake County Council District 5">
     <meta property="og:description" content="Conservative Republican fighting to reduce taxes, support public safety, and bring government closer to the people.">
-    <meta property="og:image" content="https://votechrisnull.com/hero5.png">
+    <meta property="og:image" content="https://votechrisnull.com/social-share.png">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Chris Null for Salt Lake County Council District 5">
     <meta name="twitter:description" content="Conservative Republican fighting to reduce taxes, support public safety, and bring government closer to the people.">
-    <meta name="twitter:image" content="https://votechrisnull.com/hero5.png">
+    <meta name="twitter:image" content="https://votechrisnull.com/social-share.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -719,6 +719,39 @@
             color: var(--text-light);
             font-size: 0.95rem;
             margin: 0;
+        }
+
+        .event-details p a {
+            color: var(--text-light);
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 2px;
+        }
+
+        .event-details p a:hover {
+            color: var(--red);
+        }
+
+        .event-actions {
+            margin-top: 0.5rem;
+        }
+
+        .add-to-cal {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--red);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .add-to-cal:hover {
+            background: var(--red);
+            color: var(--white);
         }
 
         @media (max-width: 768px) {
@@ -1566,6 +1599,19 @@
                     Chris Null is the bold leader Salt Lake County needs right now. Chris isn't afraid to make the tough decisions necessary to streamline government and allow us to keep more of our hard earned money.<span class="read-more-btn" onclick="toggleEndorsement('pierucci-quote', this)">... Read More</span><span class="endorsement-hidden" style="display: none;"> He will eliminate duplicate county services, allowing cities like Riverton to thrive as they grow while the county shrinks and refocuses on its limited core responsibilities. Most importantly, Chris will help build a county that prioritizes families and lasting communities, not out of touch special interests. I wholeheartedly endorse my friend, Chris Null for Salt Lake County Council. He is the right choice at the right time for our county.<br><br><span class="read-more-btn" onclick="toggleEndorsement('pierucci-quote', this)">Read Less</span></span>
                 </div>
             </div>
+
+            <div class="endorsement-card" id="stewart-endorsement">
+                <div class="endorsement-header">
+                    <img src="sheldon_stewart.jpg" alt="Sheldon Stewart" class="endorsement-photo" loading="lazy">
+                    <div class="endorsement-info">
+                        <h3>Sheldon Stewart</h3>
+                        <p>Salt Lake County Council Member, District 5</p>
+                    </div>
+                </div>
+                <div class="endorsement-quote" id="stewart-quote">
+                    I've served on the Salt Lake County Council, and I can tell you firsthand — District 5 needs a representative who understands that as cities grow and take on more services, county government must shrink accordingly. Chris Null gets that. His 'Stop Paying Twice' message isn't just a slogan — it's the right policy.<span class="read-more-btn" onclick="toggleEndorsement('stewart-quote', this)">... Read More</span><span class="endorsement-hidden" style="display: none;"><br><br>Chris has spent years building conservative organizations, holding the line on fiscal responsibility, and delivering real results. He understands that taxpayers in Riverton, Bluffdale, Herriman, South Jordan, West Jordan, and Draper deserve a council member who will fight to eliminate duplicate taxation, not expand government spending.<br><br>When Mayor Wilson pushed for a property tax increase, the answer from District 5 should have been a firm no. Chris Null will be that voice. I'm proud to endorse him for Salt Lake County Council District 5.<br><br><span class="read-more-btn" onclick="toggleEndorsement('stewart-quote', this)">Read Less</span></span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1626,14 +1672,26 @@
             {
                 date: "March 28, 2026",
                 time: "2:00 – 4:00 PM",
-                title: "Meet & Greet",
+                title: "Meet Chris Null",
                 location: "Nielsen's Frozen Custard, 3779 South Jordan Pkwy, South Jordan, UT 84009"
             },
             {
                 date: "April 2, 2026",
                 time: "6:00 – 8:00 PM",
-                title: "Meet & Greet",
-                location: "Old Dome Meeting Hall, 1452 W 12600 S, Riverton, UT 84065"
+                title: "Meet Chris Null",
+                location: "Riverton City Park, 1452 W 12600 S, Riverton, UT 84065"
+            },
+            {
+                date: "April 15, 2026",
+                time: "6:00 – 7:30 PM",
+                title: "Meet Your Co Candidates",
+                location: "Murray Library, 166 E 5300 S, Murray, UT 84107"
+            },
+            {
+                date: "April 17, 2026",
+                time: "6:00 – 8:00 PM",
+                title: "SLCoGOP Meet & Greet",
+                location: "Cottonwood High School, 5715 S 1300 E, Murray, UT 84121"
             },
             {
                 date: "April 18, 2026",
@@ -1643,17 +1701,77 @@
             }
         ];
 
+        function downloadICS(index) {
+            const e = campaignEvents[index];
+            const d = new Date(e.date);
+            const yr = d.getFullYear();
+            const mo = String(d.getMonth() + 1).padStart(2, '0');
+            const dy = String(d.getDate()).padStart(2, '0');
+
+            let dtStart, dtEnd, allDay;
+            if (e.time) {
+                const m = e.time.match(/(\d{1,2}):(\d{2})\s*(AM|PM)?\s*[–\-]\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+                if (m) {
+                    const endP = m[6].toUpperCase();
+                    const startP = m[3] ? m[3].toUpperCase() : endP;
+                    let sH = parseInt(m[1]), eH = parseInt(m[4]);
+                    if (startP === 'PM' && sH !== 12) sH += 12;
+                    if (startP === 'AM' && sH === 12) sH = 0;
+                    if (endP === 'PM' && eH !== 12) eH += 12;
+                    if (endP === 'AM' && eH === 12) eH = 0;
+                    dtStart = `${yr}${mo}${dy}T${String(sH).padStart(2,'0')}${m[2]}00`;
+                    dtEnd = `${yr}${mo}${dy}T${String(eH).padStart(2,'0')}${m[5]}00`;
+                    allDay = false;
+                }
+            }
+            if (!dtStart) {
+                dtStart = `${yr}${mo}${dy}`;
+                const next = new Date(d); next.setDate(next.getDate() + 1);
+                dtEnd = `${next.getFullYear()}${String(next.getMonth()+1).padStart(2,'0')}${String(next.getDate()).padStart(2,'0')}`;
+                allDay = true;
+            }
+
+            const ics = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//VoteChrisNull//Events//EN',
+                'BEGIN:VEVENT',
+                allDay ? `DTSTART;VALUE=DATE:${dtStart}` : `DTSTART;TZID=America/Denver:${dtStart}`,
+                allDay ? `DTEND;VALUE=DATE:${dtEnd}` : `DTEND;TZID=America/Denver:${dtEnd}`,
+                `SUMMARY:${e.title} – Chris Null for County Council`,
+                `LOCATION:${e.location}`,
+                `DESCRIPTION:Join Chris Null at this campaign event. More info at votechrisnull.com`,
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\r\n');
+
+            const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = e.title.replace(/[^a-z0-9]+/gi, '-').toLowerCase() + '.ics';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
         (function renderEvents() {
             const list = document.getElementById('events-list');
-            list.innerHTML = campaignEvents.map(e => `
+            list.innerHTML = campaignEvents.map((e, i) => {
+                const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(e.location);
+                return `
                 <li class="event-item">
                     <div class="event-date">${e.date}${e.time ? '<br>' + e.time : ''}</div>
                     <div class="event-details">
                         <h3>${e.title}</h3>
-                        <p>${e.location}</p>
+                        <p><a href="${mapsUrl}" target="_blank" rel="noopener">${e.location}</a></p>
+                        <div class="event-actions">
+                            <a class="add-to-cal" onclick="downloadICS(${i})">&#128197; Add to Calendar</a>
+                        </div>
                     </div>
-                </li>
-            `).join('');
+                </li>`;
+            }).join('');
         })();
     </script>
 

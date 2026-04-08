@@ -488,5 +488,25 @@
         "state": "Utah",
         "attending": "maybe",
         "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-03-25 03:30:11",
+        "name": "Rickie Mehl Farmer",
+        "email": "rickie@cameocollege.edu",
+        "phone": "8015770680",
+        "city": "Salt Lake City",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
+    },
+    {
+        "timestamp": "2026-03-26 06:27:43",
+        "name": "Tiffany Skelton",
+        "email": "tiffunny4@yahoo.com",
+        "phone": "7022810703",
+        "city": "West Jordan",
+        "state": "Utah",
+        "attending": "yes",
+        "needInfo": "no"
     }
 ]

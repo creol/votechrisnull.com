@@ -337,7 +337,7 @@
             background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
             display: flex;
             align-items: center;
-            padding: clamp(90px, 12vw, 120px) clamp(1rem, 3vw, 2rem) 4rem;
+            padding: clamp(126px, 15vw, 156px) clamp(1rem, 3vw, 2rem) 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -430,6 +430,100 @@
             color: rgba(255,255,255,0.8);
             font-size: 0.85rem;
             margin-top: 0.5rem;
+        }
+
+        /* Hero Endorsement Rotator */
+        .hero-endorsements {
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            height: 80px;
+        }
+
+        .hero-endorsement-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border-left: 3px solid var(--red);
+            padding: 0.75rem 1.2rem;
+            border-radius: 0 6px 6px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            cursor: pointer;
+        }
+
+        .hero-endorsement-slide.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-endorsement-slide img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--red);
+            flex-shrink: 0;
+        }
+
+        .hero-endorsement-slide .endorsement-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .hero-endorsement-slide .endorser-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            color: var(--white);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-endorsement-slide .endorser-title {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-endorsement-slide .endorser-snippet {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.85);
+            font-style: italic;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .hero-endorsement-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero-endorsement-dots .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            padding: 0;
+        }
+
+        .hero-endorsement-dots .dot.active {
+            background: var(--red);
+            transform: scale(1.3);
         }
 
         .hero-image {
@@ -848,6 +942,39 @@
             }
         }
 
+        /* Song Banner */
+        .song-banner {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: var(--white);
+            border-bottom: 2px solid var(--red);
+            padding: 0.4rem 2rem;
+            color: var(--text);
+        }
+
+        .song-banner .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .song-banner span {
+            font-size: 0.75rem;
+            white-space: nowrap;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .song-banner iframe {
+            flex: 1;
+            min-width: 0;
+        }
+
         /* Media Section */
         .media {
             padding: 6rem 2rem;
@@ -1191,6 +1318,10 @@
             .nav-container { height: 70px; }
             .nav-logo img { height: 50px; }
             .nav-tagline { display: none; }
+            .song-banner { top: 70px; padding: 0.25rem 1rem; }
+            .song-banner .container { gap: 0.5rem; }
+            .song-banner span { display: none; }
+            .song-banner iframe { height: 20px; }
 
             .nav-links {
                 position: fixed;
@@ -1281,10 +1412,25 @@
                 display: none;
             }
 
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+            }
+
             .hero-headshot-mobile {
                 display: block;
-                margin: 0 auto 1.5rem;
+                margin: 1.5rem auto 1.5rem;
+                order: 2;
             }
+
+            .hero-content h1 { order: 3; }
+            .hero-content .hero-office { order: 4; }
+            .hero-content .hero-tagline { order: 5; }
+            .hero-content .hero-subtitle { order: 6; }
+            .hero-content .hero-buttons { order: 7; }
+            .hero-content .hero-stats { order: 8; }
+            .hero-endorsements { order: 1; margin-top: 0; margin-bottom: 1rem; }
+            .hero-endorsement-dots { order: 1; }
 
             .hero-headshot-mobile img {
                 width: 180px;
@@ -1293,6 +1439,32 @@
                 object-fit: cover;
                 border: 4px solid var(--white);
                 box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            }
+
+            .hero-endorsements {
+                height: 70px;
+            }
+
+            .hero-endorsement-slide {
+                padding: 0.6rem 1rem;
+                gap: 0.75rem;
+            }
+
+            .hero-endorsement-slide img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero-endorsement-slide .endorser-name {
+                font-size: 0.8rem;
+            }
+
+            .hero-endorsement-slide .endorser-title {
+                font-size: 0.65rem;
+            }
+
+            .hero-endorsement-slide .endorser-snippet {
+                font-size: 0.7rem;
             }
 
             .hero-content h1 {
@@ -1312,7 +1484,7 @@
             }
 
             .hero {
-                padding: 5rem 1rem 3rem;
+                padding: 6rem 1rem 3rem;
             }
 
             .hero-buttons {
@@ -1393,7 +1565,8 @@
             .nav { padding: 0 0.75rem; }
             .nav-container { height: 65px; }
             .nav-logo img { height: 45px; }
-            .hero { padding: 4rem 0.75rem 2rem; }
+            .song-banner { top: 65px; padding: 0.2rem 0.75rem; }
+            .hero { padding: 6rem 0.75rem 2rem; }
             
             .mobile-menu-btn.active {
                 top: 10px;
@@ -1451,6 +1624,14 @@
         </div>
     </nav>
 
+    <!-- Song Banner -->
+    <div class="song-banner">
+        <div class="container">
+            <span>Closer to the Front Door — AI-generated song based on Chris's interview with UT State Senator John Johnson</span>
+            <iframe width="100%" height="20" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-92511303/closer-to-the-front-door-chris&color=%23EE2737&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&show_artwork=false"></iframe>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
@@ -1481,6 +1662,57 @@
                         <div class="stat-number">1</div>
                         <div class="stat-label">Goal: Serve You</div>
                     </div>
+                </div>
+
+                <!-- Rotating Endorsements -->
+                <div class="hero-endorsements" id="heroEndorsements">
+                    <a href="#endorsements" class="hero-endorsement-slide active" style="text-decoration:none;">
+                        <img src="images/Trent-Staggs.jpg" alt="Mayor Trent Staggs">
+                        <div class="endorsement-text">
+                            <div class="endorser-name">Mayor Trent Staggs</div>
+                            <div class="endorser-title">Former Mayor, Riverton City</div>
+                            <div class="endorser-snippet">"District 5 deserves a councilmember who will champion limited government..."</div>
+                        </div>
+                    </a>
+                    <a href="#endorsements" class="hero-endorsement-slide" style="text-decoration:none;">
+                        <img src="carlos-moreno.jpg" alt="Carlos A. Moreno">
+                        <div class="endorsement-text">
+                            <div class="endorser-name">Carlos A. Moreno</div>
+                            <div class="endorser-title">Salt Lake County Councilman, District 2</div>
+                            <div class="endorser-snippet">"Chris is principled, fiscally responsible, and deeply committed to public safety."</div>
+                        </div>
+                    </a>
+                    <a href="#endorsements" class="hero-endorsement-slide" style="text-decoration:none;">
+                        <img src="Andrew_Pierucci.jpg" alt="Andy Pierucci">
+                        <div class="endorsement-text">
+                            <div class="endorser-name">Andy Pierucci</div>
+                            <div class="endorser-title">Riverton City Councilman, District 1</div>
+                            <div class="endorser-snippet">"Chris Null is the bold leader Salt Lake County needs right now."</div>
+                        </div>
+                    </a>
+                    <a href="#endorsements" class="hero-endorsement-slide" style="text-decoration:none;">
+                        <img src="sheldon_stewart.jpg" alt="Sheldon Stewart">
+                        <div class="endorsement-text">
+                            <div class="endorser-name">Sheldon Stewart</div>
+                            <div class="endorser-title">Salt Lake County Council Member, District 5</div>
+                            <div class="endorser-snippet">"His 'Stop Paying Twice' message isn't just a slogan — it's the right policy."</div>
+                        </div>
+                    </a>
+                    <a href="#endorsements" class="hero-endorsement-slide" style="text-decoration:none;">
+                        <img src="CR_endorsment.png" alt="Utah College Republicans">
+                        <div class="endorsement-text">
+                            <div class="endorser-name">Utah College Republicans</div>
+                            <div class="endorser-title">Official Endorsement</div>
+                            <div class="endorser-snippet">"Young Utahns want Chris Null for Salt Lake County Council District 5."</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="hero-endorsement-dots" id="endorsementDots">
+                    <button class="dot active" onclick="goToEndorsement(0)"></button>
+                    <button class="dot" onclick="goToEndorsement(1)"></button>
+                    <button class="dot" onclick="goToEndorsement(2)"></button>
+                    <button class="dot" onclick="goToEndorsement(3)"></button>
+                    <button class="dot" onclick="goToEndorsement(4)"></button>
                 </div>
             </div>
             <div class="hero-image">
@@ -1587,6 +1819,19 @@
                 </div>
             </div>
 
+            <div class="endorsement-card" id="moreno-endorsement">
+                <div class="endorsement-header">
+                    <img src="carlos-moreno.jpg" alt="Carlos A. Moreno" class="endorsement-photo" loading="lazy">
+                    <div class="endorsement-info">
+                        <h3>Carlos A. Moreno</h3>
+                        <p>Salt Lake County Councilman, District 2</p>
+                    </div>
+                </div>
+                <div class="endorsement-quote" id="moreno-quote">
+                    I came to this country with nothing but a dream — and what I found was something far greater. America is not a dream. America is a miracle.<span class="read-more-btn" onclick="toggleEndorsement('moreno-quote', this)">... Read More</span><span class="endorsement-hidden" style="display: none;"><br><br>I know what it looks like when government grows too powerful, taxes too much, and stops listening to the people it serves. I watched it happen in Venezuela. That is why I fight every day to make sure it never happens here.<br><br>That is also why I am proud to endorse my friend and colleague, Chris Null, for Salt Lake County Council District 5.<br><br>Chris understands something that too many politicians forget: your money belongs to you. When county and city governments both charge taxpayers for the same services, that is not governance — that is waste. Chris calls it "Stop Paying Twice," and he is right. Riverton proved it works. I want to see that same common sense represent the people of District 5.<br><br>As public servants, we are here to listen and serve — not lecture. Chris lives that principle. He is principled, fiscally responsible, and deeply committed to public safety. I look forward to working alongside him on the County Council.<br><br>If you believe in freedom, accountability, and a government that respects the people it serves — Chris Null is your candidate.<br><br>God bless America. And God bless District 5.<br><br><span class="read-more-btn" onclick="toggleEndorsement('moreno-quote', this)">Read Less</span></span>
+                </div>
+            </div>
+
             <div class="endorsement-card" id="pierucci-endorsement">
                 <div class="endorsement-header">
                     <img src="Andrew_Pierucci.jpg" alt="Andy Pierucci" class="endorsement-photo" loading="lazy">
@@ -1610,6 +1855,19 @@
                 </div>
                 <div class="endorsement-quote" id="stewart-quote">
                     I've served on the Salt Lake County Council, and I can tell you firsthand — District 5 needs a representative who understands that as cities grow and take on more services, county government must shrink accordingly. Chris Null gets that. His 'Stop Paying Twice' message isn't just a slogan — it's the right policy.<span class="read-more-btn" onclick="toggleEndorsement('stewart-quote', this)">... Read More</span><span class="endorsement-hidden" style="display: none;"><br><br>Chris has spent years building conservative organizations, holding the line on fiscal responsibility, and delivering real results. He understands that taxpayers in Riverton, Bluffdale, Herriman, South Jordan, West Jordan, and Draper deserve a council member who will fight to eliminate duplicate taxation, not expand government spending.<br><br>When Mayor Wilson pushed for a property tax increase, the answer from District 5 should have been a firm no. Chris Null will be that voice. I'm proud to endorse him for Salt Lake County Council District 5.<br><br><span class="read-more-btn" onclick="toggleEndorsement('stewart-quote', this)">Read Less</span></span>
+                </div>
+            </div>
+
+            <div class="endorsement-card" id="college-republicans-endorsement">
+                <div class="endorsement-header">
+                    <img src="CR_endorsment.png" alt="Utah College Republicans" class="endorsement-photo" loading="lazy">
+                    <div class="endorsement-info">
+                        <h3>Utah College Republicans</h3>
+                        <p>Official Endorsement — "Young Utahns Want Chris Null"</p>
+                    </div>
+                </div>
+                <div class="endorsement-quote">
+                    The Utah Federation of College Republicans has officially voted to endorse Chris Null for Salt Lake County Council District 5. Young Utahns want a leader who will fight for fiscal responsibility, limited government, and a future they can afford.
                 </div>
             </div>
         </div>
@@ -1641,6 +1899,26 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </button>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="https://i0.wp.com/politicit.com/wp-content/uploads/2026/04/chris-knoll-making-a-point-on-politicit-podcast-about-county-planning-lag-3.jpg?fit=1280%2C720&ssl=1" alt="Chris Null Politicit Podcast" class="media-thumbnail" loading="lazy">
+                <div class="media-content">
+                    <h3>
+                        <a href="https://politicit.com/chris-null-files-salt-lake-county-council-d5-ending-double-taxation-refocusing-county-government/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
+                            <img src="https://politicit.com/wp-content/uploads/2024/03/politicit_logob@2x.png" alt="Politicit" loading="lazy">
+                        </a>
+                        Ending Double Taxation & Refocusing County Government
+                    </h3>
+                    <p>Chris discusses his filing for Salt Lake County Council District 5, his plan to end double taxation, and bringing government closer to residents through structural reform.</p>
+                    <a href="https://politicit.com/chris-null-files-salt-lake-county-council-d5-ending-double-taxation-refocusing-county-government/" target="_blank" rel="noopener noreferrer" class="media-link">
+                        Listen to Podcast
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1680,6 +1958,12 @@
                 time: "6:00 – 8:00 PM",
                 title: "Meet Chris Null",
                 location: "Riverton City Park, 1452 W 12600 S, Riverton, UT 84065"
+            },
+            {
+                date: "April 8, 2026",
+                time: "6:00 – 8:00 PM",
+                title: "Candidate Meet & Greet",
+                location: "Wheeler Historic Farm, 6351 S 900 E, Murray, UT 84121"
             },
             {
                 date: "April 15, 2026",
@@ -1875,6 +2159,25 @@
                 hiddenContent.style.display = 'none';
                 readMoreBtn.style.display = 'inline';
             }
+        }
+
+        // Hero endorsement rotator
+        let currentEndorsement = 0;
+        const slides = document.querySelectorAll('.hero-endorsement-slide');
+        const dots = document.querySelectorAll('.hero-endorsement-dots .dot');
+
+        function goToEndorsement(index) {
+            slides[currentEndorsement].classList.remove('active');
+            dots[currentEndorsement].classList.remove('active');
+            currentEndorsement = index;
+            slides[currentEndorsement].classList.add('active');
+            dots[currentEndorsement].classList.add('active');
+        }
+
+        if (slides.length > 0) {
+            setInterval(function() {
+                goToEndorsement((currentEndorsement + 1) % slides.length);
+            }, 4000);
         }
 
         function toggleMenu() {

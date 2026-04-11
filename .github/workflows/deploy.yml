@@ -22,7 +22,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.QNAP_SSH_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          printf "Host qnap\n  HostName %s\n  User %s\n  IdentityFile ~/.ssh/deploy_key\n  StrictHostKeyChecking no\n  ProxyCommand cloudflared access ssh --hostname %%h\n" \
+          printf "Host qnap\n  HostName %s\n  User %s\n  IdentityFile ~/.ssh/deploy_key\n  StrictHostKeyChecking no\n  UserKnownHostsFile /dev/null\n  ProxyCommand cloudflared access tcp --hostname %%h --url localhost:%%p\n" \
             "${{ secrets.QNAP_SSH_HOST }}" "${{ secrets.QNAP_SSH_USER }}" > ~/.ssh/config
           rsync -avz --delete \
             --exclude='.git' \

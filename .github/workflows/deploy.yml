@@ -17,6 +17,24 @@ jobs:
           chmod +x cloudflared
           sudo mv cloudflared /usr/local/bin/
 
+      - name: Debug tunnel connectivity
+        env:
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          echo "=== Testing DNS resolution ==="
+          nslookup ${{ secrets.QNAP_SSH_HOST }} || true
+          echo "=== Testing HTTPS connectivity ==="
+          curl -sI https://${{ secrets.QNAP_SSH_HOST }} \
+            -H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID" \
+            -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET" || true
+          echo "=== Cloudflared version ==="
+          cloudflared --version
+          echo "=== Testing cloudflared access ==="
+          cloudflared access ssh --hostname ${{ secrets.QNAP_SSH_HOST }} 2>&1 &
+          sleep 3
+          kill %1 2>/dev/null || true
+
       - name: Set up SSH and deploy
         env:
           CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}

@@ -815,7 +815,8 @@
             color: #999;
         }
 
-        .event-item.past .add-to-cal {
+        .event-item.past .add-to-cal,
+        .event-item.past .cal-dropdown {
             display: none;
         }
 
@@ -872,6 +873,78 @@
         .add-to-cal:hover {
             background: var(--red);
             color: var(--white);
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: var(--red);
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            background: var(--blue);
+        }
+
+        .cal-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .cal-dropdown-menu {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+            min-width: 180px;
+            margin-bottom: 4px;
+        }
+
+        .cal-dropdown.open .cal-dropdown-menu {
+            display: block;
+        }
+
+        .cal-dropdown-menu a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.85rem;
+            color: var(--blue);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .cal-dropdown-menu a:hover {
+            background: #f0f0f0;
+            color: var(--red);
+        }
+
+        .cal-dropdown-menu a + a {
+            border-top: 1px solid #eee;
         }
 
         @media (max-width: 768px) {
@@ -2059,6 +2132,55 @@
             }
         ];
 
+        function toggleCalDropdown(index, event) {
+            event.stopPropagation();
+            const el = document.getElementById('cal-drop-' + index);
+            const wasOpen = el.classList.contains('open');
+            document.querySelectorAll('.cal-dropdown.open').forEach(d => d.classList.remove('open'));
+            if (!wasOpen) el.classList.add('open');
+        }
+        document.addEventListener('click', function() {
+            document.querySelectorAll('.cal-dropdown.open').forEach(d => d.classList.remove('open'));
+        });
+
+        function googleCalUrl(index) {
+            const e = campaignEvents[index];
+            const d = new Date(e.date);
+            const yr = d.getFullYear();
+            const mo = String(d.getMonth() + 1).padStart(2, '0');
+            const dy = String(d.getDate()).padStart(2, '0');
+
+            let dates;
+            if (e.time) {
+                const m = e.time.match(/(\d{1,2}):(\d{2})\s*(AM|PM)?\s*[–\-]\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+                if (m) {
+                    const endP = m[6].toUpperCase();
+                    const startP = m[3] ? m[3].toUpperCase() : endP;
+                    let sH = parseInt(m[1]), eH = parseInt(m[4]);
+                    if (startP === 'PM' && sH !== 12) sH += 12;
+                    if (startP === 'AM' && sH === 12) sH = 0;
+                    if (endP === 'PM' && eH !== 12) eH += 12;
+                    if (endP === 'AM' && eH === 12) eH = 0;
+                    dates = `${yr}${mo}${dy}T${String(sH).padStart(2,'0')}${m[2]}00/${yr}${mo}${dy}T${String(eH).padStart(2,'0')}${m[5]}00`;
+                }
+            }
+            if (!dates) {
+                const next = new Date(d); next.setDate(next.getDate() + 1);
+                const nyr = next.getFullYear(), nmo = String(next.getMonth()+1).padStart(2,'0'), ndy = String(next.getDate()).padStart(2,'0');
+                dates = `${yr}${mo}${dy}/${nyr}${nmo}${ndy}`;
+            }
+
+            const params = new URLSearchParams({
+                action: 'TEMPLATE',
+                text: e.title + ' - Chris Null for County Council',
+                dates: dates,
+                details: 'Join Chris Null at this campaign event. More info at votechrisnull.com',
+                location: e.location,
+                ctz: 'America/Denver'
+            });
+            return 'https://calendar.google.com/calendar/render?' + params.toString();
+        }
+
         function downloadICS(index) {
             const e = campaignEvents[index];
             const d = new Date(e.date);
@@ -2089,16 +2211,32 @@
                 allDay = true;
             }
 
+            function icsEscape(str) {
+                return str.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,');
+            }
+
+            const now = new Date();
+            const dtstamp = now.getFullYear() +
+                String(now.getMonth()+1).padStart(2,'0') +
+                String(now.getDate()).padStart(2,'0') + 'T' +
+                String(now.getHours()).padStart(2,'0') +
+                String(now.getMinutes()).padStart(2,'0') +
+                String(now.getSeconds()).padStart(2,'0');
+            const uid = 'event' + index + '-' + dtstamp + '@votechrisnull.com';
+
             const ics = [
                 'BEGIN:VCALENDAR',
                 'VERSION:2.0',
                 'PRODID:-//VoteChrisNull//Events//EN',
+                'METHOD:PUBLISH',
                 'BEGIN:VEVENT',
+                `UID:${uid}`,
+                `DTSTAMP:${dtstamp}`,
                 allDay ? `DTSTART;VALUE=DATE:${dtStart}` : `DTSTART;TZID=America/Denver:${dtStart}`,
                 allDay ? `DTEND;VALUE=DATE:${dtEnd}` : `DTEND;TZID=America/Denver:${dtEnd}`,
-                `SUMMARY:${e.title} – Chris Null for County Council`,
-                `LOCATION:${e.location}`,
-                `DESCRIPTION:Join Chris Null at this campaign event. More info at votechrisnull.com`,
+                `SUMMARY:${icsEscape(e.title + ' - Chris Null for County Council')}`,
+                `LOCATION:${icsEscape(e.location)}`,
+                `DESCRIPTION:${icsEscape('Join Chris Null at this campaign event. More info at votechrisnull.com')}`,
                 'END:VEVENT',
                 'END:VCALENDAR'
             ].join('\r\n');
@@ -2126,7 +2264,13 @@
                         <p><a href="${mapsUrl}" target="_blank" rel="noopener">${e.location}</a></p>
                         ${e.description ? '<p style="margin-top:0.35rem;font-style:italic;color:#333;">' + e.description + '</p>' : ''}
                         <div class="event-actions">
-                            <a class="add-to-cal" onclick="downloadICS(${i})">&#128197; Add to Calendar</a>
+                            <span class="cal-dropdown" id="cal-drop-${i}">
+                                <a class="add-to-cal" onclick="toggleCalDropdown(${i}, event)">&#128197; Add to Calendar &#9662;</a>
+                                <span class="cal-dropdown-menu">
+                                    <a href="${googleCalUrl(i)}" target="_blank" rel="noopener">&#128196; Google Calendar</a>
+                                    <a href="#" onclick="downloadICS(${i}); return false;">&#128197; Outlook / ICS file</a>
+                                </span>
+                            </span>
                             ${e.rsvpUrl ? '<a class="add-to-cal" href="' + e.rsvpUrl + '" target="_blank" rel="noopener">&#9997; ' + (e.rsvpLabel || 'Head Count') + '</a>' : ''}
                         </div>
                     </div>
@@ -2417,4 +2561,29 @@
         }
 
         // Close modal with Escape key
-        document.addE
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top">&#9650;</button>
+    <script>
+        (function() {
+            var btn = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            });
+            btn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -793,6 +793,32 @@
             align-items: flex-start;
         }
 
+        .event-item.past {
+            opacity: 0.5;
+            border-left-color: #999;
+            position: relative;
+        }
+
+        .event-item.past .event-date {
+            color: #999;
+        }
+
+        .event-item.past .event-details h3 {
+            color: #999;
+        }
+
+        .event-item.past .event-details h3::after {
+            content: " — Event Passed";
+            font-size: 0.8rem;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            color: #999;
+        }
+
+        .event-item.past .add-to-cal {
+            display: none;
+        }
+
         .event-date {
             font-family: 'Oswald', sans-serif;
             font-size: 1.1rem;
@@ -1667,6 +1693,14 @@
                 <!-- Rotating Endorsements -->
                 <div class="hero-endorsements" id="heroEndorsements">
                     <a href="#endorsements" class="hero-endorsement-slide active" style="text-decoration:none;">
+                        <img src="burgess-owens.jpg" alt="Congressman Burgess Owens">
+                        <div class="endorsement-text">
+                            <div class="endorser-name">Congressman Burgess Owens</div>
+                            <div class="endorser-title">U.S. Representative, Utah's 4th District</div>
+                            <div class="endorser-snippet">"I've seen what America First leadership looks like — and Chris Null has it."</div>
+                        </div>
+                    </a>
+                    <a href="#endorsements" class="hero-endorsement-slide" style="text-decoration:none;">
                         <img src="images/Trent-Staggs.jpg" alt="Mayor Trent Staggs">
                         <div class="endorsement-text">
                             <div class="endorser-name">Mayor Trent Staggs</div>
@@ -1713,6 +1747,7 @@
                     <button class="dot" onclick="goToEndorsement(2)"></button>
                     <button class="dot" onclick="goToEndorsement(3)"></button>
                     <button class="dot" onclick="goToEndorsement(4)"></button>
+                    <button class="dot" onclick="goToEndorsement(5)"></button>
                 </div>
             </div>
             <div class="hero-image">
@@ -1801,6 +1836,19 @@
                 <div class="red-line"></div>
             </div>
             
+            <div class="endorsement-card" id="owens-endorsement">
+                <div class="endorsement-header">
+                    <img src="burgess-owens.jpg" alt="Congressman Burgess Owens" class="endorsement-photo" loading="lazy">
+                    <div class="endorsement-info">
+                        <h3>Congressman Burgess Owens</h3>
+                        <p>U.S. Representative, Utah's 4th District</p>
+                    </div>
+                </div>
+                <div class="endorsement-quote" id="owens-quote">
+                    I've seen what America First leadership looks like — and Chris Null has it. He built a record of fighting for conservative principles as Salt Lake County Republican Party Chair, and he'll bring that same fight to the County Council. Chris has my full endorsement.
+                </div>
+            </div>
+
             <div class="endorsement-card" id="staggs-endorsement">
                 <div class="endorsement-header">
                     <img src="images/Trent-Staggs.jpg" alt="Mayor Trent Staggs" class="endorsement-photo" loading="lazy">
@@ -1945,31 +1993,43 @@
                 date: "March 25, 2026",
                 time: "6:00 – 9:00 PM",
                 title: "Meet & Greet",
-                location: "Kneaders Bakery & Cafe, 5083 13400 S, Riverton, UT 84096"
+                location: "Kneaders Bakery & Cafe, 5083 13400 S, Riverton, UT 84096",
+                past: true
             },
             {
                 date: "March 28, 2026",
                 time: "2:00 – 4:00 PM",
                 title: "Meet Chris Null",
-                location: "Nielsen's Frozen Custard, 3779 South Jordan Pkwy, South Jordan, UT 84009"
+                location: "Nielsen's Frozen Custard, 3779 South Jordan Pkwy, South Jordan, UT 84009",
+                past: true
             },
             {
                 date: "April 2, 2026",
                 time: "6:00 – 8:00 PM",
                 title: "Meet Chris Null",
-                location: "Riverton City Park, 1452 W 12600 S, Riverton, UT 84065"
+                location: "Riverton City Park, 1452 W 12600 S, Riverton, UT 84065",
+                past: true
             },
             {
                 date: "April 8, 2026",
                 time: "6:00 – 8:00 PM",
                 title: "Candidate Meet & Greet",
-                location: "Wheeler Historic Farm, 6351 S 900 E, Murray, UT 84121"
+                location: "Wheeler Historic Farm, 6351 S 900 E, Murray, UT 84121",
+                past: true
             },
             {
                 date: "April 15, 2026",
                 time: "6:00 – 7:30 PM",
                 title: "Meet Your Co Candidates",
                 location: "Murray Library, 166 E 5300 S, Murray, UT 84107"
+            },
+            {
+                date: "April 16, 2026",
+                time: "6:00 – 8:00 PM",
+                title: "Kenny J's BBQ MEAT and Greet",
+                location: "11610 District Drive, South Jordan, UT 84095",
+                description: "With SLCo Councilman Carlos Moreno, Former Riverton Mayor Trent Staggs, Pres. WRCSLC Carolyn Phippen, and Riverton City Councilman Andy Pierucci",
+                rsvpUrl: "https://docs.google.com/forms/d/16gl1DHs-fo5BCOzFPA7oavvEVNLL9iyOQdkaXT--1vY/edit?chromeless=1"
             },
             {
                 date: "April 17, 2026",
@@ -2045,13 +2105,15 @@
             list.innerHTML = campaignEvents.map((e, i) => {
                 const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(e.location);
                 return `
-                <li class="event-item">
+                <li class="event-item${e.past ? ' past' : ''}">
                     <div class="event-date">${e.date}${e.time ? '<br>' + e.time : ''}</div>
                     <div class="event-details">
                         <h3>${e.title}</h3>
                         <p><a href="${mapsUrl}" target="_blank" rel="noopener">${e.location}</a></p>
+                        ${e.description ? '<p style="margin-top:0.35rem;font-style:italic;color:#333;">' + e.description + '</p>' : ''}
                         <div class="event-actions">
                             <a class="add-to-cal" onclick="downloadICS(${i})">&#128197; Add to Calendar</a>
+                            ${e.rsvpUrl ? '<a class="add-to-cal" href="' + e.rsvpUrl + '" target="_blank" rel="noopener">&#9997; Head Count</a>' : ''}
                         </div>
                     </div>
                 </li>`;

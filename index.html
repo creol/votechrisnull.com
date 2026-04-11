@@ -1636,7 +1636,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#endorsements">Endorsements</a></li>
                 <li><a href="#media">Media</a></li>
-                <li><a href="#events">Events</a></li>
+                <li><a href="#next-event">Events</a></li>
                 <li class="nav-item-issues">
                     <span class="nav-dropdown-trigger">Issues</span>
                     <ul class="nav-dropdown">
@@ -2018,6 +2018,12 @@
                 past: true
             },
             {
+                date: "April 14, 2026",
+                time: "6:30 – 8:30 PM",
+                title: "Meet and Greet",
+                location: "American Preparatory Academy Draper 2 Campus, 11938 Lone Peak Pkwy, Draper, UT 84020"
+            },
+            {
                 date: "April 15, 2026",
                 time: "6:00 – 7:30 PM",
                 title: "Meet Your Co Candidates",
@@ -2025,10 +2031,18 @@
             },
             {
                 date: "April 16, 2026",
+                time: "11:30 AM – 1:00 PM",
+                title: "Women's Republican Club of SLC - Lunch",
+                location: "Bicentennial Indoor Pavilion, 530 E 8680 S, Sandy, UT",
+                rsvpUrl: "https://wrcslc.org/events/",
+                rsvpLabel: "RSVP"
+            },
+            {
+                date: "April 16, 2026",
                 time: "6:00 – 8:00 PM",
                 title: "Kenny J's BBQ MEAT and Greet",
                 location: "11610 District Drive, South Jordan, UT 84095",
-                description: "With SLCo Councilman Carlos Moreno, Former Riverton Mayor Trent Staggs, Pres. WRCSLC Carolyn Phippen, and Riverton City Councilman Andy Pierucci",
+                description: "Come and enjoy some great food and meet with me and SLCo Councilman Carlos Moreno, Former Riverton Mayor Trent Staggs, Pres. WRCSLC Carolyn Phippen, Riverton City Councilman Andy Pierucci and more as I share my vision for a safer and more affordable SLCo.",
                 rsvpUrl: "https://docs.google.com/forms/d/16gl1DHs-fo5BCOzFPA7oavvEVNLL9iyOQdkaXT--1vY/edit?chromeless=1"
             },
             {
@@ -2105,7 +2119,7 @@
             list.innerHTML = campaignEvents.map((e, i) => {
                 const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(e.location);
                 return `
-                <li class="event-item${e.past ? ' past' : ''}">
+                <li class="event-item${e.past ? ' past' : ''}"${!e.past && !campaignEvents.slice(0, i).some(ev => !ev.past) ? ' id="next-event"' : ''}>
                     <div class="event-date">${e.date}${e.time ? '<br>' + e.time : ''}</div>
                     <div class="event-details">
                         <h3>${e.title}</h3>
@@ -2113,7 +2127,7 @@
                         ${e.description ? '<p style="margin-top:0.35rem;font-style:italic;color:#333;">' + e.description + '</p>' : ''}
                         <div class="event-actions">
                             <a class="add-to-cal" onclick="downloadICS(${i})">&#128197; Add to Calendar</a>
-                            ${e.rsvpUrl ? '<a class="add-to-cal" href="' + e.rsvpUrl + '" target="_blank" rel="noopener">&#9997; Head Count</a>' : ''}
+                            ${e.rsvpUrl ? '<a class="add-to-cal" href="' + e.rsvpUrl + '" target="_blank" rel="noopener">&#9997; ' + (e.rsvpLabel || 'Head Count') + '</a>' : ''}
                         </div>
                     </div>
                 </li>`;

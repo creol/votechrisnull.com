@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBQ MEAT &amp; Greet - Chris Null for SLCo Council 5</title>
+    <meta name="description" content="Join Chris Null and fellow Republicans at Kenny J's BBQ on April 16th, 6-8PM. SLC County Delegates, come enjoy great food and hear Chris's vision for a safer, more affordable Salt Lake County.">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votechrisnull.com/bbq.html">
+    <meta property="og:title" content="BBQ MEAT & Greet - April 16th, 6-8PM">
+    <meta property="og:description" content="SLC County Delegates: Join Chris Null at Kenny J's BBQ for great food & conversation. April 16th, 6-8PM in South Jordan.">
+    <meta property="og:image" content="https://votechrisnull.com/SLCo5_Logo.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BBQ MEAT & Greet - April 16th, 6-8PM">
+    <meta name="twitter:description" content="SLC County Delegates: Join Chris Null at Kenny J's BBQ for great food & conversation. April 16th, 6-8PM in South Jordan.">
+    <meta name="twitter:image" content="https://votechrisnull.com/SLCo5_Logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #EE2737;
+            --blue: #002868;
+            --blue-dark: #001a4d;
+            --white: #ffffff;
+            --text: #2b2d42;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100vh;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,100 100,0 100,100" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-tagline {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .tagline-top {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline-bottom {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--red);
+            font-weight: 500;
+        }
+
+        .content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 2rem 3rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem;
+        }
+
+        .event-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            margin-bottom: 2.5rem;
+        }
+
+        .details-box {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            text-align: left;
+        }
+
+        .details-box h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--blue);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .details-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .details-box li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .details-box li:last-child {
+            border-bottom: none;
+        }
+
+        .details-box li strong {
+            color: var(--blue);
+            display: inline-block;
+            min-width: 100px;
+        }
+
+        .rsvp-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            margin-bottom: 2rem;
+        }
+
+        .rsvp-section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--blue);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .rsvp-section p {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .rsvp-section iframe {
+            max-width: 100%;
+        }
+
+        @media (max-width: 900px) {
+            .nav { padding: 0 1rem; }
+            .nav-container { height: 70px; }
+            .nav-logo img { height: 50px; }
+            .nav-tagline { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .content { padding: 100px 1rem 2rem; }
+            h1 { font-size: 1.8rem; }
+            .subtitle { font-size: 1rem; }
+            .details-box, .rsvp-section { padding: 1.5rem; }
+            .details-box li { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-logo">
+                    <a href="index.html"><img src="SLCo5_Logo.png" alt="Chris Null for SLCo Council 5"></a>
+                </div>
+                <div class="nav-tagline">
+                    <span class="tagline-top">America First Leadership</span>
+                    <span class="tagline-bottom">Keeping the Dream Alive</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>BBQ MEAT &amp; Greet</h1>
+        <p class="subtitle">Salt Lake County Delegates — You're Invited!</p>
+
+        <img src="KennyJ.png" alt="BBQ MEAT and Greet at Kenny J's BBQ - April 16th, 6PM-8PM - 11610 District Dr, South Jordan, UT 84095" class="event-image">
+
+        <div class="details-box">
+            <h2>Event Details</h2>
+            <ul>
+                <li><strong>What:</strong> BBQ MEAT &amp; Greet at Kenny J's BBQ</li>
+                <li><strong>When:</strong> Thursday, April 16th, 2026 &mdash; 6:00 PM to 8:00 PM</li>
+                <li><strong>Where:</strong> Kenny J's BBQ &mdash; 11610 District Dr, South Jordan, UT 84095</li>
+                <li><strong>Who:</strong> SLC County Delegates, friends, and fellow Republicans</li>
+            </ul>
+        </div>
+
+        <div class="rsvp-section">
+            <h2>RSVP — Headcount</h2>
+            <p>Please fill out the form below so we can plan for enough food. We look forward to seeing you there!</p>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeqyBVGj9TIbSZQfesFzj08aTVAhwlcqPFI5v155T3AXZHpjg/viewform?embedded=true" width="640" height="746" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+</body>
+</html>

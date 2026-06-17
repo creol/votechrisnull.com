@@ -12,13 +12,15 @@
     <meta property="og:url" content="https://votechrisnull.com/">
     <meta property="og:title" content="Chris Null for Salt Lake County Council District 5">
     <meta property="og:description" content="Conservative Republican fighting to reduce taxes, support public safety, and bring government closer to the people.">
-    <meta property="og:image" content="https://votechrisnull.com/social-share.png">
+    <meta property="og:image" content="https://votechrisnull.com/images/Endorsments.jpg?v=2">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1350">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Chris Null for Salt Lake County Council District 5">
     <meta name="twitter:description" content="Conservative Republican fighting to reduce taxes, support public safety, and bring government closer to the people.">
-    <meta name="twitter:image" content="https://votechrisnull.com/social-share.png">
+    <meta name="twitter:image" content="https://votechrisnull.com/images/Endorsments.jpg?v=2">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -258,6 +260,41 @@
         .donate-btn:hover {
             background: var(--red-dark);
             transform: translateY(-2px);
+        }
+
+        .nav-yardsign {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--blue) !important;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            padding: 0.35rem 0.75rem 0.35rem 0.4rem;
+            border: 2px solid var(--red);
+            border-radius: 4px;
+            transition: all 0.3s !important;
+            line-height: 1.1;
+        }
+
+        .nav-yardsign img {
+            height: 40px;
+            width: auto;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .nav-yardsign:hover {
+            background: var(--red);
+            color: var(--white) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-yardsign-mobile {
+            display: none;
         }
 
         /* Issues dropdown */
@@ -528,8 +565,10 @@
 
         .hero-image {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 1.5rem;
         }
 
         .hero-image img {
@@ -537,6 +576,16 @@
             height: auto;
             border-radius: 8px;
             filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+        }
+
+        .hero-banner {
+            width: 100%;
+            border-radius: 4px;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4)) !important;
+        }
+
+        .hero-banner-mobile {
+            display: none;
         }
 
         .btn {
@@ -1068,7 +1117,7 @@
             gap: 1rem;
         }
 
-        .song-banner span {
+        .song-banner .song-title {
             font-size: 0.75rem;
             white-space: nowrap;
             color: var(--text);
@@ -1079,6 +1128,30 @@
             flex: 1;
             min-width: 0;
         }
+
+        .song-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--red);
+            color: var(--white);
+            border: none;
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            transition: background 0.15s ease, transform 0.05s ease;
+            flex: 0 0 auto;
+        }
+        .song-toggle:hover { background: #c8202e; }
+        .song-toggle:active { transform: translateY(1px); }
+        .song-toggle.is-paused { background: var(--blue, #002868); }
+        .song-toggle.is-paused:hover { background: #001f52; }
+        .song-toggle-icon { font-size: 0.95rem; line-height: 1; }
 
         /* Media Section */
         .media {
@@ -1425,8 +1498,9 @@
             .nav-tagline { display: none; }
             .song-banner { top: 70px; padding: 0.25rem 1rem; }
             .song-banner .container { gap: 0.5rem; }
-            .song-banner span { display: none; }
+            .song-banner .song-title { display: none; }
             .song-banner iframe { height: 20px; }
+            .song-toggle { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
 
             .nav-links {
                 position: fixed;
@@ -1465,6 +1539,23 @@
                 margin-top: 1.5rem;
                 padding: 1rem 3rem;
                 font-size: 1.1rem;
+            }
+
+            .nav-links .nav-yardsign {
+                display: none;
+            }
+
+            .nav-yardsign-mobile {
+                display: inline-flex;
+                margin-left: auto;
+                margin-right: 0.5rem;
+                padding: 0.25rem 0.6rem 0.25rem 0.3rem;
+                font-size: 0.75rem;
+                gap: 0.4rem;
+            }
+
+            .nav-yardsign-mobile img {
+                height: 32px;
             }
 
             /* Show Issues dropdown inline on mobile */
@@ -1516,6 +1607,18 @@
             .hero-image {
                 display: none;
             }
+
+            .hero-banner-mobile {
+                display: block;
+                order: 5;
+                margin: 0.5rem auto 1rem;
+                max-width: 90%;
+            }
+
+            .hero-content .hero-tagline { order: 6; }
+            .hero-content .hero-subtitle { order: 7; }
+            .hero-content .hero-buttons { order: 8; }
+            .hero-content .hero-stats { order: 9; }
 
             .hero-content {
                 display: flex;
@@ -1704,6 +1807,10 @@
                     <span class="tagline-bottom">Keeping the Dream Alive</span>
                 </div>
             </div>
+            <a href="#volunteer" class="nav-yardsign nav-yardsign-mobile" onclick="selectYardSign(event)">
+                <img src="yardsign.png" alt="">
+                <span>Get a Yard Sign</span>
+            </a>
             <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">
                 <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -1725,6 +1832,7 @@
                     </ul>
                 </li>
                 <li><a href="#volunteer">Get Involved</a></li>
+                <li><a href="#volunteer" class="nav-yardsign" onclick="selectYardSign(event)"><img src="yardsign.png" alt=""><span>Get a Yard Sign</span></a></li>
             </ul>
         </div>
     </nav>
@@ -1732,10 +1840,55 @@
     <!-- Song Banner -->
     <div class="song-banner">
         <div class="container">
-            <span>Closer to the Front Door — AI-generated song based on Chris's interview with UT State Senator John Johnson</span>
-            <iframe width="100%" height="20" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-92511303/closer-to-the-front-door-chris&color=%23EE2737&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&show_artwork=false"></iframe>
+            <button id="songToggle" class="song-toggle" type="button" aria-label="Pause song">
+                <span class="song-toggle-icon" aria-hidden="true">&#9208;</span>
+                <span class="song-toggle-label">Pause Song</span>
+            </button>
+            <span class="song-title">Closer to the Front Door — AI-generated song based on Chris's interview with UT State Senator John Johnson</span>
+            <iframe id="songPlayer" width="100%" height="20" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-92511303/closer-to-the-front-door-chris&color=%23EE2737&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&show_artwork=false"></iframe>
         </div>
     </div>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script>
+        (function() {
+            var iframe = document.getElementById('songPlayer');
+            var btn = document.getElementById('songToggle');
+            if (!iframe || !btn || typeof SC === 'undefined') return;
+            var widget = SC.Widget(iframe);
+            var playing = true;
+            function setUI(isPlaying) {
+                playing = isPlaying;
+                btn.querySelector('.song-toggle-icon').innerHTML = isPlaying ? '&#9208;' : '&#9654;';
+                btn.querySelector('.song-toggle-label').textContent = isPlaying ? 'Pause Song' : 'Play Song';
+                btn.setAttribute('aria-label', isPlaying ? 'Pause song' : 'Play song');
+                btn.classList.toggle('is-paused', !isPlaying);
+            }
+            widget.bind(SC.Widget.Events.PLAY, function() { setUI(true); });
+            widget.bind(SC.Widget.Events.PAUSE, function() { setUI(false); });
+            widget.bind(SC.Widget.Events.FINISH, function() { setUI(false); });
+            widget.bind(SC.Widget.Events.READY, function() {
+                widget.isPaused(function(paused) {
+                    setUI(!paused);
+                    if (paused) {
+                        var tryPlay = function() {
+                            widget.play();
+                            window.removeEventListener('pointerdown', tryPlay);
+                            window.removeEventListener('keydown', tryPlay);
+                            window.removeEventListener('touchstart', tryPlay);
+                            window.removeEventListener('scroll', tryPlay);
+                        };
+                        window.addEventListener('pointerdown', tryPlay, { once: false });
+                        window.addEventListener('keydown', tryPlay, { once: false });
+                        window.addEventListener('touchstart', tryPlay, { once: false });
+                        window.addEventListener('scroll', tryPlay, { once: false, passive: true });
+                    }
+                });
+            });
+            btn.addEventListener('click', function() {
+                if (playing) { widget.pause(); } else { widget.play(); }
+            });
+        })();
+    </script>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1746,6 +1899,7 @@
                 </div>
                 <h1>CHRIS <span>NULL</span></h1>
                 <div class="hero-office">Salt Lake Co. Council District 5</div>
+                <img src="convention-winner.png" alt="Republican Convention Winner" class="hero-banner hero-banner-mobile">
                 <p class="hero-tagline">Conservative Republican fighting to Stop Excessive Taxing and reduce bureaucratic inefficiencies</p>
                 <p class="hero-subtitle">The Family is the main reason I am running. Our families need to be able to afford to live in Salt Lake County now and in the future. Salt Lake County government needs to do its part by cutting waste where we can. Please vote for me for Salt Lake County Council District 5.</p>
                 
@@ -1835,9 +1989,11 @@
                     <button class="dot" onclick="goToEndorsement(3)"></button>
                     <button class="dot" onclick="goToEndorsement(4)"></button>
                     <button class="dot" onclick="goToEndorsement(5)"></button>
+                    <button class="dot" onclick="goToEndorsement(6)"></button>
                 </div>
             </div>
             <div class="hero-image">
+                <img src="convention-winner.png" alt="Republican Convention Winner" class="hero-banner">
                 <!-- Hero Image - Replace hero.png with your candidate photo -->
                 <img src="hero5.png" alt="Chris Null">
             </div>
@@ -2122,13 +2278,15 @@
                 date: "April 14, 2026",
                 time: "6:30 – 8:30 PM",
                 title: "Meet and Greet",
-                location: "American Preparatory Academy Draper 2 Campus, 11938 Lone Peak Pkwy, Draper, UT 84020"
+                location: "American Preparatory Academy Draper 2 Campus, 11938 Lone Peak Pkwy, Draper, UT 84020",
+                past: true
             },
             {
                 date: "April 15, 2026",
                 time: "6:00 – 7:30 PM",
                 title: "Meet Your Co Candidates",
-                location: "Murray Library, 166 E 5300 S, Murray, UT 84107"
+                location: "Murray Library, 166 E 5300 S, Murray, UT 84107",
+                past: true
             },
             {
                 date: "April 16, 2026",
@@ -2136,7 +2294,8 @@
                 title: "Women's Republican Club of SLC - Lunch",
                 location: "Bicentennial Indoor Pavilion, 530 E 8680 S, Sandy, UT",
                 rsvpUrl: "https://wrcslc.org/events/",
-                rsvpLabel: "RSVP"
+                rsvpLabel: "RSVP",
+                past: true
             },
             {
                 date: "April 16, 2026",
@@ -2145,19 +2304,22 @@
                 location: "11610 District Drive, South Jordan, UT 84095",
                 description: "Come and enjoy some great food and meet with me and SLCo Councilman Carlos Moreno, Former Riverton Mayor Trent Staggs, Pres. WRCSLC Carolyn Phippen, Riverton City Councilman Andy Pierucci and more as I share my vision for a safer and more affordable SLCo.",
                 rsvpUrl: "/bbq",
-                rsvpLabel: "Head Count & Details"
+                rsvpLabel: "Head Count & Details",
+                past: true
             },
             {
                 date: "April 17, 2026",
                 time: "6:00 – 8:00 PM",
                 title: "SLCoGOP Meet & Greet",
-                location: "Cottonwood High School, 5715 S 1300 E, Murray, UT 84121"
+                location: "Cottonwood High School, 5715 S 1300 E, Murray, UT 84121",
+                past: true
             },
             {
                 date: "April 18, 2026",
                 time: "",
                 title: "SLCo GOP County Nominating Convention",
-                location: "Cottonwood High School, 5715 S 1300 E, Murray, UT 84121"
+                location: "Cottonwood High School, 5715 S 1300 E, Murray, UT 84121",
+                past: true
             }
         ];
 
@@ -2320,6 +2482,17 @@
                 <div id="formMessage"></div>
                 <form id="volunteerForm">
                     <div class="form-group">
+                        <label for="interest">How would you like to help?</label>
+                        <select id="interest" name="interest">
+                            <option value="">Select an option</option>
+                            <option value="volunteer">Volunteer</option>
+                            <option value="host">Host an Event</option>
+                            <option value="yard-sign">Yard Sign</option>
+                            <option value="donate">Make a Donation</option>
+                            <option value="updates">Just Stay Updated</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
@@ -2332,19 +2505,20 @@
                         <input type="tel" id="phone" name="phone">
                     </div>
                     <div class="form-group">
-                        <label for="zip">ZIP Code *</label>
-                        <input type="text" id="zip" name="zip" required>
+                        <label for="address">Street Address</label>
+                        <input type="text" id="address" name="address" autocomplete="street-address">
                     </div>
                     <div class="form-group">
-                        <label for="interest">How would you like to help?</label>
-                        <select id="interest" name="interest">
-                            <option value="">Select an option</option>
-                            <option value="volunteer">Volunteer</option>
-                            <option value="host">Host an Event</option>
-                            <option value="yard-sign">Yard Sign</option>
-                            <option value="donate">Make a Donation</option>
-                            <option value="updates">Just Stay Updated</option>
-                        </select>
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" autocomplete="address-level2">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" value="UT" autocomplete="address-level1">
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">ZIP Code *</label>
+                        <input type="text" id="zip" name="zip" required autocomplete="postal-code">
                     </div>
                     <div class="form-group">
                         <label for="message">Message (Optional)</label>
@@ -2487,6 +2661,29 @@
                 nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
             }
         });
+
+        // Auto-select "Yard Sign" when the header CTA is clicked
+        function selectYardSign(e) {
+            // Close mobile menu if open
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks) navLinks.classList.remove('active');
+            // Set the dropdown after the smooth-scroll fires
+            setTimeout(function() {
+                const interest = document.getElementById('interest');
+                if (interest) interest.value = 'yard-sign';
+            }, 50);
+        }
+
+        // Allow ?interest=yard-sign in the URL to also pre-select the dropdown
+        (function applyInterestParam() {
+            const params = new URLSearchParams(window.location.search);
+            const interestParam = params.get('interest');
+            if (!interestParam) return;
+            window.addEventListener('DOMContentLoaded', function() {
+                const interest = document.getElementById('interest');
+                if (interest) interest.value = interestParam;
+            });
+        })();
 
         // Volunteer Form Handler
         // Google Apps Script Web App URL for form submissions
